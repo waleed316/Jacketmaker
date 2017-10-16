@@ -202,8 +202,6 @@
         </div>
     </div>
 
-    
-
     <div class="container-fluid related">
         <div class="container">
             <div class="row">
