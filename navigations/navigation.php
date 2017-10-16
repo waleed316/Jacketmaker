@@ -12,19 +12,19 @@
             <div class="col-xl-7 zero-margin">
                 <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home</a>
+                    <a class="nav-link" href="index.php">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">About Us</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Men</a>
+                    <a class="nav-link" href="category.php">Men</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Women</a>
+                    <a class="nav-link" href="category.php">Women</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Customize</a>
+                    <a class="nav-link" href="customjacket.php">Customize</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Contact</a>

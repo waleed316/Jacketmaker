@@ -1139,1346 +1139,687 @@
     };
 }(jQuery));
 
-// light gallery
-(function() {
+/*!
+ * Waterwheel Carousel
+ * Version 2.3.0
+ * http://www.bkosborne.com
+ *
+ * Copyright 2011-2013 Brian Osborne
+ * Dual licensed under GPLv3 or MIT
+ * Copies of the licenses have been distributed
+ * with this plugin.
+ *
+ * Plugin written by Brian Osborne
+ * for use with the jQuery JavaScript Framework
+ * http://www.jquery.com
+ */
+(function ($) {
     'use strict';
-
-    var defaults = {
-
-        mode: 'lg-slide',
-
-        // Ex : 'ease'
-        cssEasing: 'ease',
-
-        //'for jquery animation'
-        easing: 'linear',
-        speed: 600,
-        height: '100%',
-        width: '100%',
-        addClass: '',
-        startClass: 'lg-start-zoom',
-        backdropDuration: 150,
-        hideBarsDelay: 6000,
-
-        useLeft: false,
-
-        closable: true,
-        loop: true,
-        escKey: true,
-        keyPress: true,
-        controls: true,
-        slideEndAnimatoin: true,
-        hideControlOnEnd: false,
-        mousewheel: true,
-
-        getCaptionFromTitleOrAlt: true,
-
-        // .lg-item || '.lg-sub-html'
-        appendSubHtmlTo: '.lg-sub-html',
-
-        subHtmlSelectorRelative: false,
-
-        /**
-         * @desc number of preload slides
-         * will exicute only after the current slide is fully loaded.
-         *
-         * @ex you clicked on 4th image and if preload = 1 then 3rd slide and 5th
-         * slide will be loaded in the background after the 4th slide is fully loaded..
-         * if preload is 2 then 2nd 3rd 5th 6th slides will be preloaded.. ... ...
-         *
-         */
-        preload: 1,
-        showAfterLoad: true,
-        selector: '',
-        selectWithin: '',
-        nextHtml: '',
-        prevHtml: '',
-
-        // 0, 1
-        index: false,
-
-        iframeMaxWidth: '100%',
-
-        download: true,
-        counter: true,
-        appendCounterTo: '.lg-toolbar',
-
-        swipeThreshold: 50,
-        enableSwipe: true,
-        enableDrag: true,
-
-        dynamic: false,
-        dynamicEl: [],
-        galleryId: 1
-    };
-
-    function Plugin(element, options) {
-
-        // Current lightGallery element
-        this.el = element;
-
-        // Current jquery element
-        this.$el = $(element);
-
-        // lightGallery settings
-        this.s = $.extend({}, defaults, options);
-
-        // When using dynamic mode, ensure dynamicEl is an array
-        if (this.s.dynamic && this.s.dynamicEl !== 'undefined' && this.s.dynamicEl.constructor === Array && !this.s.dynamicEl.length) {
-            throw ('When using dynamic mode, you must also define dynamicEl as an Array.');
-        }
-
-        // lightGallery modules
-        this.modules = {};
-
-        // false when lightgallery complete first slide;
-        this.lGalleryOn = false;
-
-        this.lgBusy = false;
-
-        // Timeout function for hiding controls;
-        this.hideBartimeout = false;
-
-        // To determine browser supports for touch events;
-        this.isTouch = ('ontouchstart' in document.documentElement);
-
-        // Disable hideControlOnEnd if sildeEndAnimation is true
-        if (this.s.slideEndAnimatoin) {
-            this.s.hideControlOnEnd = false;
-        }
-
-        // Gallery items
-        if (this.s.dynamic) {
-            this.$items = this.s.dynamicEl;
-        } else {
-            if (this.s.selector === 'this') {
-                this.$items = this.$el;
-            } else if (this.s.selector !== '') {
-                if (this.s.selectWithin) {
-                    this.$items = $(this.s.selectWithin).find(this.s.selector);
-                } else {
-                    this.$items = this.$el.find($(this.s.selector));
-                }
-            } else {
-                this.$items = this.$el.children();
-            }
-        }
-
-        // .lg-item
-        this.$slide = '';
-
-        // .lg-outer
-        this.$outer = '';
-
-        this.init();
-
-        return this;
-    }
-
-    Plugin.prototype.init = function() {
-
-        var _this = this;
-
-        // s.preload should not be more than $item.length
-        if (_this.s.preload > _this.$items.length) {
-            _this.s.preload = _this.$items.length;
-        }
-
-        // if dynamic option is enabled execute immediately
-        var _hash = window.location.hash;
-        if (_hash.indexOf('lg=' + this.s.galleryId) > 0) {
-
-            _this.index = parseInt(_hash.split('&slide=')[1], 10);
-
-            $('body').addClass('lg-from-hash');
-            if (!$('body').hasClass('lg-on')) {
-                setTimeout(function() {
-                    _this.build(_this.index);
-                });
-
-                $('body').addClass('lg-on');
-            }
-        }
-
-        if (_this.s.dynamic) {
-
-            _this.$el.trigger('onBeforeOpen.lg');
-
-            _this.index = _this.s.index || 0;
-
-            // prevent accidental double execution
-            if (!$('body').hasClass('lg-on')) {
-                setTimeout(function() {
-                    _this.build(_this.index);
-                    $('body').addClass('lg-on');
-                });
-            }
-        } else {
-
-            // Using different namespace for click because click event should not unbind if selector is same object('this')
-            _this.$items.on('click.lgcustom', function(event) {
-
-                // For IE8
-                try {
-                    event.preventDefault();
-                    event.preventDefault();
-                } catch (er) {
-                    event.returnValue = false;
-                }
-
-                _this.$el.trigger('onBeforeOpen.lg');
-
-                _this.index = _this.s.index || _this.$items.index(this);
-
-                // prevent accidental double execution
-                if (!$('body').hasClass('lg-on')) {
-                    _this.build(_this.index);
-                    $('body').addClass('lg-on');
-                }
-            });
-        }
-
-    };
-
-    Plugin.prototype.build = function(index) {
-
-        var _this = this;
-
-        _this.structure();
-
-        // module constructor
-        $.each($.fn.lightGallery.modules, function(key) {
-            _this.modules[key] = new $.fn.lightGallery.modules[key](_this.el);
+  
+    $.fn.waterwheelCarousel = function (startingOptions) {
+  
+      // Adds support for intializing multiple carousels from the same selector group
+      if (this.length > 1) {
+        this.each(function() {
+          $(this).waterwheelCarousel(startingOptions);
         });
-
-        // initiate slide function
-        _this.slide(index, false, false, false);
-
-        if (_this.s.keyPress) {
-            _this.keyPress();
-        }
-
-        if (_this.$items.length > 1) {
-
-            _this.arrow();
-
-            setTimeout(function() {
-                _this.enableDrag();
-                _this.enableSwipe();
-            }, 50);
-
-            if (_this.s.mousewheel) {
-                _this.mousewheel();
-            }
-        } else {
-            _this.$slide.on('click.lg', function() {
-                _this.$el.trigger('onSlideClick.lg');
-            });
-        }
-
-        _this.counter();
-
-        _this.closeGallery();
-
-        _this.$el.trigger('onAfterOpen.lg');
-
-        // Hide controllers if mouse doesn't move for some period
-        _this.$outer.on('mousemove.lg click.lg touchstart.lg', function() {
-
-            _this.$outer.removeClass('lg-hide-items');
-
-            clearTimeout(_this.hideBartimeout);
-
-            // Timeout will be cleared on each slide movement also
-            _this.hideBartimeout = setTimeout(function() {
-                _this.$outer.addClass('lg-hide-items');
-            }, _this.s.hideBarsDelay);
-
-        });
-
-        _this.$outer.trigger('mousemove.lg');
-
-    };
-
-    Plugin.prototype.structure = function() {
-        var list = '';
-        var controls = '';
-        var i = 0;
-        var subHtmlCont = '';
-        var template;
-        var _this = this;
-
-        $('body').append('<div class="lg-backdrop"></div>');
-        $('.lg-backdrop').css('transition-duration', this.s.backdropDuration + 'ms');
-
-        // Create gallery items
-        for (i = 0; i < this.$items.length; i++) {
-            list += '<div class="lg-item"></div>';
-        }
-
-        // Create controlls
-        if (this.s.controls && this.$items.length > 1) {
-            controls = '<div class="lg-actions">' +
-                '<button class="lg-prev lg-icon">' + this.s.prevHtml + '</button>' +
-                '<button class="lg-next lg-icon">' + this.s.nextHtml + '</button>' +
-                '</div>';
-        }
-
-        if (this.s.appendSubHtmlTo === '.lg-sub-html') {
-            subHtmlCont = '<div class="lg-sub-html"></div>';
-        }
-
-        template = '<div class="lg-outer ' + this.s.addClass + ' ' + this.s.startClass + '">' +
-            '<div class="lg" style="width:' + this.s.width + '; height:' + this.s.height + '">' +
-            '<div class="lg-inner">' + list + '</div>' +
-            '<div class="lg-toolbar lg-group">' +
-            '<span class="lg-close lg-icon"></span>' +
-            '</div>' +
-            controls +
-            subHtmlCont +
-            '</div>' +
-            '</div>';
-
-        $('body').append(template);
-        this.$outer = $('.lg-outer');
-        this.$slide = this.$outer.find('.lg-item');
-
-        if (this.s.useLeft) {
-            this.$outer.addClass('lg-use-left');
-
-            // Set mode lg-slide if use left is true;
-            this.s.mode = 'lg-slide';
-        } else {
-            this.$outer.addClass('lg-use-css3');
-        }
-
-        // For fixed height gallery
-        _this.setTop();
-        $(window).on('resize.lg orientationchange.lg', function() {
-            setTimeout(function() {
-                _this.setTop();
-            }, 100);
-        });
-
-        // add class lg-current to remove initial transition
-        this.$slide.eq(this.index).addClass('lg-current');
-
-        // add Class for css support and transition mode
-        if (this.doCss()) {
-            this.$outer.addClass('lg-css3');
-        } else {
-            this.$outer.addClass('lg-css');
-
-            // Set speed 0 because no animation will happen if browser doesn't support css3
-            this.s.speed = 0;
-        }
-
-        this.$outer.addClass(this.s.mode);
-
-        if (this.s.enableDrag && this.$items.length > 1) {
-            this.$outer.addClass('lg-grab');
-        }
-
-        if (this.s.showAfterLoad) {
-            this.$outer.addClass('lg-show-after-load');
-        }
-
-        if (this.doCss()) {
-            var $inner = this.$outer.find('.lg-inner');
-            $inner.css('transition-timing-function', this.s.cssEasing);
-            $inner.css('transition-duration', this.s.speed + 'ms');
-        }
-
-        setTimeout(function() {
-            $('.lg-backdrop').addClass('in');
-        });
-
-        setTimeout(function() {
-            _this.$outer.addClass('lg-visible');
-        }, this.s.backdropDuration);
-
-        if (this.s.download) {
-            this.$outer.find('.lg-toolbar').append('<a id="lg-download" target="_blank" download class="lg-download lg-icon"></a>');
-        }
-
-        // Store the current scroll top value to scroll back after closing the gallery..
-        this.prevScrollTop = $(window).scrollTop();
-
-    };
-
-    // For fixed height gallery
-    Plugin.prototype.setTop = function() {
-        if (this.s.height !== '100%') {
-            var wH = $(window).height();
-            var top = (wH - parseInt(this.s.height, 10)) / 2;
-            var $lGallery = this.$outer.find('.lg');
-            if (wH >= parseInt(this.s.height, 10)) {
-                $lGallery.css('top', top + 'px');
-            } else {
-                $lGallery.css('top', '0px');
-            }
-        }
-    };
-
-    // Find css3 support
-    Plugin.prototype.doCss = function() {
-        // check for css animation support
-        var support = function() {
-            var transition = ['transition', 'MozTransition', 'WebkitTransition', 'OTransition', 'msTransition', 'KhtmlTransition'];
-            var root = document.documentElement;
-            var i = 0;
-            for (i = 0; i < transition.length; i++) {
-                if (transition[i] in root.style) {
-                    return true;
-                }
-            }
+        return this; // allow chaining
+      }
+  
+      var carousel = this;
+      var options = {};
+      var data = {};
+  
+      function initializeCarouselData() {
+        data = {
+          itemsContainer:         $(carousel),
+          totalItems:             $(carousel).find('img').length,
+          containerWidth:         $(carousel).width(),
+          containerHeight:        $(carousel).height(),
+          currentCenterItem:      null,
+          previousCenterItem:     null,
+          items:                  [],
+          calculations:           [],
+          carouselRotationsLeft:  0,
+          currentlyMoving:        false,
+          itemsAnimating:         0,
+          currentSpeed:           options.speed,
+          intervalTimer:          null,
+          currentDirection:       'forward',
+          leftItemsCount:         0,
+          rightItemsCount:        0,
+          performingSetup:        true
         };
-
-        if (support()) {
-            return true;
-        }
-
-        return false;
-    };
-
-    /**
-     *  @desc Check the given src is video
-     *  @param {String} src
-     *  @return {Object} video type
-     *  Ex:{ youtube  :  ["//www.youtube.com/watch?v=c0asJgSyxcY", "c0asJgSyxcY"] }
-     */
-    Plugin.prototype.isVideo = function(src, index) {
-
-        var html;
-        if (this.s.dynamic) {
-            html = this.s.dynamicEl[index].html;
-        } else {
-            html = this.$items.eq(index).attr('data-html');
-        }
-
-        if (!src) {
-            if(html) {
-                return {
-                    html5: true
-                };
+        data.itemsContainer.find('img').removeClass(options.activeClassName);
+      }
+  
+      /**
+       * This function will set the autoplay for the carousel to
+       * automatically rotate it given the time in the options
+       * Can clear the autoplay by passing in true
+       */
+      function autoPlay(stop) {
+        // clear timer
+        clearTimeout(data.autoPlayTimer);
+        // as long as no stop command, and autoplay isn't zeroed...
+        if (!stop && options.autoPlay !== 0) {
+          // set timer...
+          data.autoPlayTimer = setTimeout(function () {
+            // to move the carousl in either direction...
+            if (options.autoPlay > 0) {
+              moveOnce('forward');
             } else {
-                console.error('lightGallery :- data-src is not pvovided on slide item ' + (index + 1) + '. Please make sure the selector property is properly configured. More info - http://sachinchoolur.github.io/lightGallery/demos/html-markup.html');
-                return false;
+              moveOnce('backward');
             }
+          }, Math.abs(options.autoPlay));
         }
-
-        var youtube = src.match(/\/\/(?:www\.)?youtu(?:\.be|be\.com)\/(?:watch\?v=|embed\/)?([a-z0-9\-\_\%]+)/i);
-        var vimeo = src.match(/\/\/(?:www\.)?vimeo.com\/([0-9a-z\-_]+)/i);
-        var dailymotion = src.match(/\/\/(?:www\.)?dai.ly\/([0-9a-z\-_]+)/i);
-        var vk = src.match(/\/\/(?:www\.)?(?:vk\.com|vkontakte\.ru)\/(?:video_ext\.php\?)(.*)/i);
-
-        if (youtube) {
-            return {
-                youtube: youtube
-            };
-        } else if (vimeo) {
-            return {
-                vimeo: vimeo
-            };
-        } else if (dailymotion) {
-            return {
-                dailymotion: dailymotion
-            };
-        } else if (vk) {
-            return {
-                vk: vk
-            };
+      }
+  
+      /**
+       * This function will preload all the images in the carousel before
+       * calling the passed in callback function. This is only used so we can
+       * properly determine the width and height of the items. This is not needed
+       * if a user instead manually specifies that information.
+       */
+      function preload(callback) {
+        if (options.preloadImages === false) {
+          callback();
+          return;
         }
-    };
-
-    /**
-     *  @desc Create image counter
-     *  Ex: 1/10
-     */
-    Plugin.prototype.counter = function() {
-        if (this.s.counter) {
-            $(this.s.appendCounterTo).append('<div id="lg-counter"><span id="lg-counter-current">' + (parseInt(this.index, 10) + 1) + '</span> / <span id="lg-counter-all">' + this.$items.length + '</span></div>');
-        }
-    };
-
-    /**
-     *  @desc add sub-html into the slide
-     *  @param {Number} index - index of the slide
-     */
-    Plugin.prototype.addHtml = function(index) {
-        var subHtml = null;
-        var subHtmlUrl;
-        var $currentEle;
-        if (this.s.dynamic) {
-            if (this.s.dynamicEl[index].subHtmlUrl) {
-                subHtmlUrl = this.s.dynamicEl[index].subHtmlUrl;
-            } else {
-                subHtml = this.s.dynamicEl[index].subHtml;
+  
+        var $imageElements = data.itemsContainer.find('img'), loadedImages = 0, totalImages = $imageElements.length;
+  
+        $imageElements.each(function () {
+          $(this).bind('load', function () {
+            // Add to number of images loaded and see if they are all done yet
+            loadedImages += 1;
+            if (loadedImages === totalImages) {
+              // All done, perform callback
+              callback();
+              return;
             }
-        } else {
-            $currentEle = this.$items.eq(index);
-            if ($currentEle.attr('data-sub-html-url')) {
-                subHtmlUrl = $currentEle.attr('data-sub-html-url');
-            } else {
-                subHtml = $currentEle.attr('data-sub-html');
-                if (this.s.getCaptionFromTitleOrAlt && !subHtml) {
-                    subHtml = $currentEle.attr('title') || $currentEle.find('img').first().attr('alt');
-                }
-            }
-        }
-
-        if (!subHtmlUrl) {
-            if (typeof subHtml !== 'undefined' && subHtml !== null) {
-
-                // get first letter of subhtml
-                // if first letter starts with . or # get the html form the jQuery object
-                var fL = subHtml.substring(0, 1);
-                if (fL === '.' || fL === '#') {
-                    if (this.s.subHtmlSelectorRelative && !this.s.dynamic) {
-                        subHtml = $currentEle.find(subHtml).html();
-                    } else {
-                        subHtml = $(subHtml).html();
-                    }
-                }
-            } else {
-                subHtml = '';
-            }
-        }
-
-        if (this.s.appendSubHtmlTo === '.lg-sub-html') {
-
-            if (subHtmlUrl) {
-                this.$outer.find(this.s.appendSubHtmlTo).load(subHtmlUrl);
-            } else {
-                this.$outer.find(this.s.appendSubHtmlTo).html(subHtml);
-            }
-
-        } else {
-
-            if (subHtmlUrl) {
-                this.$slide.eq(index).load(subHtmlUrl);
-            } else {
-                this.$slide.eq(index).append(subHtml);
-            }
-        }
-
-        // Add lg-empty-html class if title doesn't exist
-        if (typeof subHtml !== 'undefined' && subHtml !== null) {
-            if (subHtml === '') {
-                this.$outer.find(this.s.appendSubHtmlTo).addClass('lg-empty-html');
-            } else {
-                this.$outer.find(this.s.appendSubHtmlTo).removeClass('lg-empty-html');
-            }
-        }
-
-        this.$el.trigger('onAfterAppendSubHtml.lg', [index]);
-    };
-
-    /**
-     *  @desc Preload slides
-     *  @param {Number} index - index of the slide
-     */
-    Plugin.prototype.preload = function(index) {
-        var i = 1;
-        var j = 1;
-        for (i = 1; i <= this.s.preload; i++) {
-            if (i >= this.$items.length - index) {
-                break;
-            }
-
-            this.loadContent(index + i, false, 0);
-        }
-
-        for (j = 1; j <= this.s.preload; j++) {
-            if (index - j < 0) {
-                break;
-            }
-
-            this.loadContent(index - j, false, 0);
-        }
-    };
-
-    /**
-     *  @desc Load slide content into slide.
-     *  @param {Number} index - index of the slide.
-     *  @param {Boolean} rec - if true call loadcontent() function again.
-     *  @param {Boolean} delay - delay for adding complete class. it is 0 except first time.
-     */
-    Plugin.prototype.loadContent = function(index, rec, delay) {
-
-        var _this = this;
-        var _hasPoster = false;
-        var _$img;
-        var _src;
-        var _poster;
-        var _srcset;
-        var _sizes;
-        var _html;
-        var getResponsiveSrc = function(srcItms) {
-            var rsWidth = [];
-            var rsSrc = [];
-            for (var i = 0; i < srcItms.length; i++) {
-                var __src = srcItms[i].split(' ');
-
-                // Manage empty space
-                if (__src[0] === '') {
-                    __src.splice(0, 1);
-                }
-
-                rsSrc.push(__src[0]);
-                rsWidth.push(__src[1]);
-            }
-
-            var wWidth = $(window).width();
-            for (var j = 0; j < rsWidth.length; j++) {
-                if (parseInt(rsWidth[j], 10) > wWidth) {
-                    _src = rsSrc[j];
-                    break;
-                }
-            }
-        };
-
-        if (_this.s.dynamic) {
-
-            if (_this.s.dynamicEl[index].poster) {
-                _hasPoster = true;
-                _poster = _this.s.dynamicEl[index].poster;
-            }
-
-            _html = _this.s.dynamicEl[index].html;
-            _src = _this.s.dynamicEl[index].src;
-
-            if (_this.s.dynamicEl[index].responsive) {
-                var srcDyItms = _this.s.dynamicEl[index].responsive.split(',');
-                getResponsiveSrc(srcDyItms);
-            }
-
-            _srcset = _this.s.dynamicEl[index].srcset;
-            _sizes = _this.s.dynamicEl[index].sizes;
-
-        } else {
-
-            if (_this.$items.eq(index).attr('data-poster')) {
-                _hasPoster = true;
-                _poster = _this.$items.eq(index).attr('data-poster');
-            }
-
-            _html = _this.$items.eq(index).attr('data-html');
-            _src = _this.$items.eq(index).attr('href') || _this.$items.eq(index).attr('data-src');
-
-            if (_this.$items.eq(index).attr('data-responsive')) {
-                var srcItms = _this.$items.eq(index).attr('data-responsive').split(',');
-                getResponsiveSrc(srcItms);
-            }
-
-            _srcset = _this.$items.eq(index).attr('data-srcset');
-            _sizes = _this.$items.eq(index).attr('data-sizes');
-
-        }
-
-        //if (_src || _srcset || _sizes || _poster) {
-
-        var iframe = false;
-        if (_this.s.dynamic) {
-            if (_this.s.dynamicEl[index].iframe) {
-                iframe = true;
-            }
-        } else {
-            if (_this.$items.eq(index).attr('data-iframe') === 'true') {
-                iframe = true;
-            }
-        }
-
-        var _isVideo = _this.isVideo(_src, index);
-        if (!_this.$slide.eq(index).hasClass('lg-loaded')) {
-            if (iframe) {
-                _this.$slide.eq(index).prepend('<div class="lg-video-cont lg-has-iframe" style="max-width:' + _this.s.iframeMaxWidth + '"><div class="lg-video"><iframe class="lg-object" frameborder="0" src="' + _src + '"  allowfullscreen="true"></iframe></div></div>');
-            } else if (_hasPoster) {
-                var videoClass = '';
-                if (_isVideo && _isVideo.youtube) {
-                    videoClass = 'lg-has-youtube';
-                } else if (_isVideo && _isVideo.vimeo) {
-                    videoClass = 'lg-has-vimeo';
-                } else {
-                    videoClass = 'lg-has-html5';
-                }
-
-                _this.$slide.eq(index).prepend('<div class="lg-video-cont ' + videoClass + ' "><div class="lg-video"><span class="lg-video-play"></span><img class="lg-object lg-has-poster" src="' + _poster + '" /></div></div>');
-
-            } else if (_isVideo) {
-                _this.$slide.eq(index).prepend('<div class="lg-video-cont "><div class="lg-video"></div></div>');
-                _this.$el.trigger('hasVideo.lg', [index, _src, _html]);
-            } else {
-                _this.$slide.eq(index).prepend('<div class="lg-img-wrap"><img class="lg-object lg-image" src="' + _src + '" /></div>');
-            }
-
-            _this.$el.trigger('onAferAppendSlide.lg', [index]);
-
-            _$img = _this.$slide.eq(index).find('.lg-object');
-            if (_sizes) {
-                _$img.attr('sizes', _sizes);
-            }
-
-            if (_srcset) {
-                _$img.attr('srcset', _srcset);
-                try {
-                    picturefill({
-                        elements: [_$img[0]]
-                    });
-                } catch (e) {
-                    console.warn('lightGallery :- If you want srcset to be supported for older browser please include picturefil version 2 javascript library in your document.');
-                }
-            }
-
-            if (this.s.appendSubHtmlTo !== '.lg-sub-html') {
-                _this.addHtml(index);
-            }
-
-            _this.$slide.eq(index).addClass('lg-loaded');
-        }
-
-        _this.$slide.eq(index).find('.lg-object').on('load.lg error.lg', function() {
-
-            // For first time add some delay for displaying the start animation.
-            var _speed = 0;
-
-            // Do not change the delay value because it is required for zoom plugin.
-            // If gallery opened from direct url (hash) speed value should be 0
-            if (delay && !$('body').hasClass('lg-from-hash')) {
-                _speed = delay;
-            }
-
-            setTimeout(function() {
-                _this.$slide.eq(index).addClass('lg-complete');
-                _this.$el.trigger('onSlideItemLoad.lg', [index, delay || 0]);
-            }, _speed);
-
+          });
+          // May need to manually reset the src to get the load event to fire
+          // http://stackoverflow.com/questions/7137737/ie9-problems-with-jquery-load-event-not-firing
+          $(this).attr('src', $(this).attr('src'));
+  
+          // If browser has cached the images, it may not call trigger a load. Detect this and do it ourselves
+          if (this.complete) {
+            $(this).trigger('load');
+          }
         });
-
-        // @todo check load state for html5 videos
-        if (_isVideo && _isVideo.html5 && !_hasPoster) {
-            _this.$slide.eq(index).addClass('lg-complete');
-        }
-
-        if (rec === true) {
-            if (!_this.$slide.eq(index).hasClass('lg-complete')) {
-                _this.$slide.eq(index).find('.lg-object').on('load.lg error.lg', function() {
-                    _this.preload(index);
-                });
-            } else {
-                _this.preload(index);
-            }
-        }
-
-        //}
-    };
-
-    /**
-    *   @desc slide function for lightgallery
-        ** Slide() gets call on start
-        ** ** Set lg.on true once slide() function gets called.
-        ** Call loadContent() on slide() function inside setTimeout
-        ** ** On first slide we do not want any animation like slide of fade
-        ** ** So on first slide( if lg.on if false that is first slide) loadContent() should start loading immediately
-        ** ** Else loadContent() should wait for the transition to complete.
-        ** ** So set timeout s.speed + 50
-    <=> ** loadContent() will load slide content in to the particular slide
-        ** ** It has recursion (rec) parameter. if rec === true loadContent() will call preload() function.
-        ** ** preload will execute only when the previous slide is fully loaded (images iframe)
-        ** ** avoid simultaneous image load
-    <=> ** Preload() will check for s.preload value and call loadContent() again accoring to preload value
-        ** loadContent()  <====> Preload();
-
-    *   @param {Number} index - index of the slide
-    *   @param {Boolean} fromTouch - true if slide function called via touch event or mouse drag
-    *   @param {Boolean} fromThumb - true if slide function called via thumbnail click
-    *   @param {String} direction - Direction of the slide(next/prev)
-    */
-    Plugin.prototype.slide = function(index, fromTouch, fromThumb, direction) {
-
-        var _prevIndex = this.$outer.find('.lg-current').index();
-        var _this = this;
-
-        // Prevent if multiple call
-        // Required for hsh plugin
-        if (_this.lGalleryOn && (_prevIndex === index)) {
-            return;
-        }
-
-        var _length = this.$slide.length;
-        var _time = _this.lGalleryOn ? this.s.speed : 0;
-
-        if (!_this.lgBusy) {
-
-            if (this.s.download) {
-                var _src;
-                if (_this.s.dynamic) {
-                    _src = _this.s.dynamicEl[index].downloadUrl !== false && (_this.s.dynamicEl[index].downloadUrl || _this.s.dynamicEl[index].src);
-                } else {
-                    _src = _this.$items.eq(index).attr('data-download-url') !== 'false' && (_this.$items.eq(index).attr('data-download-url') || _this.$items.eq(index).attr('href') || _this.$items.eq(index).attr('data-src'));
-
-                }
-
-                if (_src) {
-                    $('#lg-download').attr('href', _src);
-                    _this.$outer.removeClass('lg-hide-download');
-                } else {
-                    _this.$outer.addClass('lg-hide-download');
-                }
-            }
-
-            this.$el.trigger('onBeforeSlide.lg', [_prevIndex, index, fromTouch, fromThumb]);
-
-            _this.lgBusy = true;
-
-            clearTimeout(_this.hideBartimeout);
-
-            // Add title if this.s.appendSubHtmlTo === lg-sub-html
-            if (this.s.appendSubHtmlTo === '.lg-sub-html') {
-
-                // wait for slide animation to complete
-                setTimeout(function() {
-                    _this.addHtml(index);
-                }, _time);
-            }
-
-            this.arrowDisable(index);
-
-            if (!direction) {
-                if (index < _prevIndex) {
-                    direction = 'prev';
-                } else if (index > _prevIndex) {
-                    direction = 'next';
-                }
-            }
-
-            if (!fromTouch) {
-
-                // remove all transitions
-                _this.$outer.addClass('lg-no-trans');
-
-                this.$slide.removeClass('lg-prev-slide lg-next-slide');
-
-                if (direction === 'prev') {
-
-                    //prevslide
-                    this.$slide.eq(index).addClass('lg-prev-slide');
-                    this.$slide.eq(_prevIndex).addClass('lg-next-slide');
-                } else {
-
-                    // next slide
-                    this.$slide.eq(index).addClass('lg-next-slide');
-                    this.$slide.eq(_prevIndex).addClass('lg-prev-slide');
-                }
-
-                // give 50 ms for browser to add/remove class
-                setTimeout(function() {
-                    _this.$slide.removeClass('lg-current');
-
-                    //_this.$slide.eq(_prevIndex).removeClass('lg-current');
-                    _this.$slide.eq(index).addClass('lg-current');
-
-                    // reset all transitions
-                    _this.$outer.removeClass('lg-no-trans');
-                }, 50);
-            } else {
-
-                this.$slide.removeClass('lg-prev-slide lg-current lg-next-slide');
-                var touchPrev;
-                var touchNext;
-                if (_length > 2) {
-                    touchPrev = index - 1;
-                    touchNext = index + 1;
-
-                    if ((index === 0) && (_prevIndex === _length - 1)) {
-
-                        // next slide
-                        touchNext = 0;
-                        touchPrev = _length - 1;
-                    } else if ((index === _length - 1) && (_prevIndex === 0)) {
-
-                        // prev slide
-                        touchNext = 0;
-                        touchPrev = _length - 1;
-                    }
-
-                } else {
-                    touchPrev = 0;
-                    touchNext = 1;
-                }
-
-                if (direction === 'prev') {
-                    _this.$slide.eq(touchNext).addClass('lg-next-slide');
-                } else {
-                    _this.$slide.eq(touchPrev).addClass('lg-prev-slide');
-                }
-
-                _this.$slide.eq(index).addClass('lg-current');
-            }
-
-            if (_this.lGalleryOn) {
-                setTimeout(function() {
-                    _this.loadContent(index, true, 0);
-                }, this.s.speed + 50);
-
-                setTimeout(function() {
-                    _this.lgBusy = false;
-                    _this.$el.trigger('onAfterSlide.lg', [_prevIndex, index, fromTouch, fromThumb]);
-                }, this.s.speed);
-
-            } else {
-                _this.loadContent(index, true, _this.s.backdropDuration);
-
-                _this.lgBusy = false;
-                _this.$el.trigger('onAfterSlide.lg', [_prevIndex, index, fromTouch, fromThumb]);
-            }
-
-            _this.lGalleryOn = true;
-
-            if (this.s.counter) {
-                $('#lg-counter-current').text(index + 1);
-            }
-
-        }
-        _this.index = index;
-
-    };
-
-    /**
-     *  @desc Go to next slide
-     *  @param {Boolean} fromTouch - true if slide function called via touch event
-     */
-    Plugin.prototype.goToNextSlide = function(fromTouch) {
-        var _this = this;
-        var _loop = _this.s.loop;
-        if (fromTouch && _this.$slide.length < 3) {
-            _loop = false;
-        }
-
-        if (!_this.lgBusy) {
-            if ((_this.index + 1) < _this.$slide.length) {
-                _this.index++;
-                _this.$el.trigger('onBeforeNextSlide.lg', [_this.index]);
-                _this.slide(_this.index, fromTouch, false, 'next');
-            } else {
-                if (_loop) {
-                    _this.index = 0;
-                    _this.$el.trigger('onBeforeNextSlide.lg', [_this.index]);
-                    _this.slide(_this.index, fromTouch, false, 'next');
-                } else if (_this.s.slideEndAnimatoin && !fromTouch) {
-                    _this.$outer.addClass('lg-right-end');
-                    setTimeout(function() {
-                        _this.$outer.removeClass('lg-right-end');
-                    }, 400);
-                }
-            }
-        }
-    };
-
-    /**
-     *  @desc Go to previous slide
-     *  @param {Boolean} fromTouch - true if slide function called via touch event
-     */
-    Plugin.prototype.goToPrevSlide = function(fromTouch) {
-        var _this = this;
-        var _loop = _this.s.loop;
-        if (fromTouch && _this.$slide.length < 3) {
-            _loop = false;
-        }
-
-        if (!_this.lgBusy) {
-            if (_this.index > 0) {
-                _this.index--;
-                _this.$el.trigger('onBeforePrevSlide.lg', [_this.index, fromTouch]);
-                _this.slide(_this.index, fromTouch, false, 'prev');
-            } else {
-                if (_loop) {
-                    _this.index = _this.$items.length - 1;
-                    _this.$el.trigger('onBeforePrevSlide.lg', [_this.index, fromTouch]);
-                    _this.slide(_this.index, fromTouch, false, 'prev');
-                } else if (_this.s.slideEndAnimatoin && !fromTouch) {
-                    _this.$outer.addClass('lg-left-end');
-                    setTimeout(function() {
-                        _this.$outer.removeClass('lg-left-end');
-                    }, 400);
-                }
-            }
-        }
-    };
-
-    Plugin.prototype.keyPress = function() {
-        var _this = this;
-        if (this.$items.length > 1) {
-            $(window).on('keyup.lg', function(e) {
-                if (_this.$items.length > 1) {
-                    if (e.keyCode === 37) {
-                        e.preventDefault();
-                        _this.goToPrevSlide();
-                    }
-
-                    if (e.keyCode === 39) {
-                        e.preventDefault();
-                        _this.goToNextSlide();
-                    }
-                }
-            });
-        }
-
-        $(window).on('keydown.lg', function(e) {
-            if (_this.s.escKey === true && e.keyCode === 27) {
-                e.preventDefault();
-                if (!_this.$outer.hasClass('lg-thumb-open')) {
-                    _this.destroy();
-                } else {
-                    _this.$outer.removeClass('lg-thumb-open');
-                }
-            }
+      }
+  
+      /**
+       * Makes a record of the original width and height of all the items in the carousel.
+       * If we re-intialize the carousel, these values can be used to re-establish their
+       * original dimensions.
+       */
+      function setOriginalItemDimensions() {
+        data.itemsContainer.find('img').each(function () {
+          if ($(this).data('original_width') == undefined || options.forcedImageWidth > 0) {
+            $(this).data('original_width', $(this).width());
+          }
+          if ($(this).data('original_height') == undefined || options.forcedImageHeight > 0) {
+            $(this).data('original_height', $(this).height());
+          }
         });
-    };
-
-    Plugin.prototype.arrow = function() {
-        var _this = this;
-        this.$outer.find('.lg-prev').on('click.lg', function() {
-            _this.goToPrevSlide();
-        });
-
-        this.$outer.find('.lg-next').on('click.lg', function() {
-            _this.goToNextSlide();
-        });
-    };
-
-    Plugin.prototype.arrowDisable = function(index) {
-
-        // Disable arrows if s.hideControlOnEnd is true
-        if (!this.s.loop && this.s.hideControlOnEnd) {
-            if ((index + 1) < this.$slide.length) {
-                this.$outer.find('.lg-next').removeAttr('disabled').removeClass('disabled');
-            } else {
-                this.$outer.find('.lg-next').attr('disabled', 'disabled').addClass('disabled');
-            }
-
-            if (index > 0) {
-                this.$outer.find('.lg-prev').removeAttr('disabled').removeClass('disabled');
-            } else {
-                this.$outer.find('.lg-prev').attr('disabled', 'disabled').addClass('disabled');
-            }
+      }
+  
+      /**
+       * Users can pass in a specific width and height that should be applied to every image.
+       * While this option can be used in conjunction with the image preloader, the intended
+       * use case is for when the preloader is turned off and the images don't have defined
+       * dimensions in CSS. The carousel needs dimensions one way or another to work properly.
+       */
+      function forceImageDimensionsIfEnabled() {
+        if (options.forcedImageWidth && options.forcedImageHeight) {
+          data.itemsContainer.find('img').each(function () {
+            $(this).width(options.forcedImageWidth);
+            $(this).height(options.forcedImageHeight);
+          });
         }
-    };
-
-    Plugin.prototype.setTranslate = function($el, xValue, yValue) {
-        // jQuery supports Automatic CSS prefixing since jQuery 1.8.0
-        if (this.s.useLeft) {
-            $el.css('left', xValue);
+      }
+  
+      /**
+       * For each "visible" item slot (# of flanking items plus the middle),
+       * we pre-calculate all of the properties that the item should possess while
+       * occupying that slot. This saves us some time during the actual animation.
+       */
+      function preCalculatePositionProperties() {
+        // The 0 index is the center item in the carousel
+        var $firstItem = data.itemsContainer.find('img:first');
+  
+        data.calculations[0] = {
+          distance: 0,
+          offset:   0,
+          opacity:  1
+        }
+  
+        // Then, for each number of flanking items (plus one more, see below), we
+        // perform the calcations based on our user options
+        var horizonOffset = options.horizonOffset;
+        var separation = options.separation;
+        for (var i = 1; i <= options.flankingItems + 2; i++) {
+          if (i > 1) {
+            horizonOffset *= options.horizonOffsetMultiplier;
+            separation *= options.separationMultiplier;
+          }
+          data.calculations[i] = {
+            distance: data.calculations[i-1].distance + separation,
+            offset:   data.calculations[i-1].offset + horizonOffset,
+            opacity:  data.calculations[i-1].opacity * options.opacityMultiplier
+          }
+        }
+        // We performed 1 extra set of calculations above so that the items that
+        // are moving out of sight (based on # of flanking items) gracefully animate there
+        // However, we need them to animate to hidden, so we set the opacity to 0 for
+        // that last item
+        if (options.edgeFadeEnabled) {
+          data.calculations[options.flankingItems+1].opacity = 0;
         } else {
-            $el.css({
-                transform: 'translate3d(' + (xValue) + 'px, ' + yValue + 'px, 0px)'
+          data.calculations[options.flankingItems+1] = {
+            distance: 0,
+            offset: 0,
+            opacity: 0
+          }
+        }
+      }
+  
+      /**
+       * Here we prep the carousel and its items, like setting default CSS
+       * attributes. All items start in the middle position by default
+       * and will "fan out" from there during the first animation
+       */
+      function setupCarousel() {
+        // Fill in a data array with jQuery objects of all the images
+        data.items = data.itemsContainer.find('img');
+        for (var i = 0; i < data.totalItems; i++) {
+          data.items[i] = $(data.items[i]);
+        }
+  
+        // May need to set the horizon if it was set to auto
+        if (options.horizon === 0) {
+          if (options.orientation === 'horizontal') {
+            options.horizon = data.containerHeight / 2;
+          } else {
+            options.horizon = data.containerWidth / 2;
+          }
+        }
+  
+        // Default all the items to the center position
+        data.itemsContainer
+          .css('position','relative')
+          .find('img')
+            .each(function () {
+              // Figure out where the top and left positions for center should be
+              var centerPosLeft, centerPosTop;
+              if (options.orientation === 'horizontal') {
+                centerPosLeft = (data.containerWidth / 2) - ($(this).data('original_width') / 2);
+                centerPosTop = options.horizon - ($(this).data('original_height') / 2);
+              } else {
+                centerPosLeft = options.horizon - ($(this).data('original_width') / 2);
+                centerPosTop = (data.containerHeight / 2) - ($(this).data('original_height') / 2);
+              }
+              $(this)
+                // Apply positioning and layering to the images
+                .css({
+                  'left': centerPosLeft,
+                  'top': centerPosTop,
+                  'visibility': 'visible',
+                  'position': 'absolute',
+                  'z-index': 0,
+                  'opacity': 0
+                })
+                // Give each image a data object so it remembers specific data about
+                // it's original form
+                .data({
+                  top:             centerPosTop,
+                  left:            centerPosLeft,
+                  oldPosition:     0,
+                  currentPosition: 0,
+                  depth:           0,
+                  opacity:         0
+                })
+                // The image has been setup... Now we can show it
+                .show();
             });
+      }
+  
+      /**
+       * All the items to the left and right of the center item need to be
+       * animated to their starting positions. This function will
+       * figure out what items go where and will animate them there
+       */
+      function setupStarterRotation() {
+        options.startingItem = (options.startingItem === 0) ? Math.round(data.totalItems / 2) : options.startingItem;
+  
+        data.rightItemsCount = Math.ceil((data.totalItems-1) / 2);
+        data.leftItemsCount = Math.floor((data.totalItems-1) / 2);
+  
+        // We are in effect rotating the carousel, so we need to set that
+        data.carouselRotationsLeft = 1;
+  
+        // Center item
+        moveItem(data.items[options.startingItem-1], 0);
+        data.items[options.startingItem-1].css('opacity', 1);
+  
+        // All the items to the right of center
+        var itemIndex = options.startingItem - 1;
+        for (var pos = 1; pos <= data.rightItemsCount; pos++) {
+          (itemIndex < data.totalItems - 1) ? itemIndex += 1 : itemIndex = 0;
+  
+          data.items[itemIndex].css('opacity', 1);
+          moveItem(data.items[itemIndex], pos);
         }
-    };
-
-    Plugin.prototype.touchMove = function(startCoords, endCoords) {
-
-        var distance = endCoords - startCoords;
-
-        if (Math.abs(distance) > 15) {
-            // reset opacity and transition duration
-            this.$outer.addClass('lg-dragging');
-
-            // move current slide
-            this.setTranslate(this.$slide.eq(this.index), distance, 0);
-
-            // move next and prev slide with current slide
-            this.setTranslate($('.lg-prev-slide'), -this.$slide.eq(this.index).width() + distance, 0);
-            this.setTranslate($('.lg-next-slide'), this.$slide.eq(this.index).width() + distance, 0);
+  
+        // All items to left of center
+        var itemIndex = options.startingItem - 1;
+        for (var pos = -1; pos >= data.leftItemsCount*-1; pos--) {
+          (itemIndex > 0) ? itemIndex -= 1 : itemIndex = data.totalItems - 1;
+  
+          data.items[itemIndex].css('opacity', 1);
+          moveItem(data.items[itemIndex], pos);
         }
-    };
-
-    Plugin.prototype.touchEnd = function(distance) {
-        var _this = this;
-
-        // keep slide animation for any mode while dragg/swipe
-        if (_this.s.mode !== 'lg-slide') {
-            _this.$outer.addClass('lg-slide');
+      }
+  
+      /**
+       * Given the item and position, this function will calculate the new data
+       * for the item. One the calculations are done, it will store that data in
+       * the items data object
+       */
+      function performCalculations($item, newPosition) {
+        var newDistanceFromCenter = Math.abs(newPosition);
+  
+        // Distance to the center
+        if (newDistanceFromCenter < options.flankingItems + 1) {
+          var calculations = data.calculations[newDistanceFromCenter];
+        } else {
+          var calculations = data.calculations[options.flankingItems + 1];
         }
-
-        this.$slide.not('.lg-current, .lg-prev-slide, .lg-next-slide').css('opacity', '0');
-
-        // set transition duration
-        setTimeout(function() {
-            _this.$outer.removeClass('lg-dragging');
-            if ((distance < 0) && (Math.abs(distance) > _this.s.swipeThreshold)) {
-                _this.goToNextSlide(true);
-            } else if ((distance > 0) && (Math.abs(distance) > _this.s.swipeThreshold)) {
-                _this.goToPrevSlide(true);
-            } else if (Math.abs(distance) < 5) {
-
-                // Trigger click if distance is less than 5 pix
-                _this.$el.trigger('onSlideClick.lg');
+  
+        var distanceFactor = Math.pow(options.sizeMultiplier, newDistanceFromCenter)
+        var newWidth = distanceFactor * $item.data('original_width');
+        var newHeight = distanceFactor * $item.data('original_height');
+        var widthDifference = Math.abs($item.width() - newWidth);
+        var heightDifference = Math.abs($item.height() - newHeight);
+  
+        var newOffset = calculations.offset
+        var newDistance = calculations.distance;
+        if (newPosition < 0) {
+          newDistance *= -1;
+        }
+  
+        if (options.orientation == 'horizontal') {
+          var center = data.containerWidth / 2;
+          var newLeft = center + newDistance - (newWidth / 2);
+          var newTop = options.horizon - newOffset - (newHeight / 2);
+        } else {
+          var center = data.containerHeight / 2;
+          var newLeft = options.horizon - newOffset - (newWidth / 2);
+          var newTop = center + newDistance - (newHeight / 2);
+        }
+  
+        var newOpacity;
+        if (newPosition === 0) {
+          newOpacity = 1;
+        } else {
+          newOpacity = calculations.opacity;
+        }
+  
+        // Depth will be reverse distance from center
+        var newDepth = options.flankingItems + 2 - newDistanceFromCenter;
+  
+        $item.data('width',newWidth);
+        $item.data('height',newHeight);
+        $item.data('top',newTop);
+        $item.data('left',newLeft);
+        $item.data('oldPosition',$item.data('currentPosition'));
+        $item.data('depth',newDepth);
+        $item.data('opacity',newOpacity);
+      }
+  
+      function moveItem($item, newPosition) {
+        // Only want to physically move the item if it is within the boundaries
+        // or in the first position just outside either boundary
+        if (Math.abs(newPosition) <= options.flankingItems + 1) {
+          performCalculations($item, newPosition);
+  
+          data.itemsAnimating++;
+  
+          $item
+            .css('z-index',$item.data().depth)
+            // Animate the items to their new position values
+            .animate({
+              left:    $item.data().left,
+              width:   $item.data().width,
+              height:  $item.data().height,
+              top:     $item.data().top,
+              opacity: $item.data().opacity
+            }, data.currentSpeed, options.animationEasing, function () {
+              // Animation for the item has completed, call method
+              itemAnimationComplete($item, newPosition);
+            });
+  
+        } else {
+          $item.data('currentPosition', newPosition)
+          // Move the item to the 'hidden' position if hasn't been moved yet
+          // This is for the intitial setup
+          if ($item.data('oldPosition') === 0) {
+            $item.css({
+              'left':    $item.data().left,
+              'width':   $item.data().width,
+              'height':  $item.data().height,
+              'top':     $item.data().top,
+              'opacity': $item.data().opacity,
+              'z-index': $item.data().depth
+            });
+          }
+        }
+  
+      }
+  
+      /**
+       * This function is called once an item has finished animating to its
+       * given position. Several different statements are executed here, such as
+       * dealing with the animation queue
+       */
+      function itemAnimationComplete($item, newPosition) {
+        data.itemsAnimating--;
+  
+        $item.data('currentPosition', newPosition);
+  
+        // Keep track of what items came and left the center position,
+        // so we can fire callbacks when all the rotations are completed
+        if (newPosition === 0) {
+          data.currentCenterItem = $item;
+        }
+  
+        // all items have finished their rotation, lets clean up
+        if (data.itemsAnimating === 0) {
+          data.carouselRotationsLeft -= 1;
+          data.currentlyMoving = false;
+  
+          // If there are still rotations left in the queue, rotate the carousel again
+          // we pass in zero because we don't want to add any additional rotations
+          if (data.carouselRotationsLeft > 0) {
+            rotateCarousel(0);
+          // Otherwise there are no more rotations and...
+          } else {
+            // Reset the speed of the carousel to original
+            data.currentSpeed = options.speed;
+  
+            data.currentCenterItem.addClass(options.activeClassName);
+  
+            if (data.performingSetup === false) {
+              options.movedToCenter(data.currentCenterItem);
+              options.movedFromCenter(data.previousCenterItem);
             }
-
-            _this.$slide.removeAttr('style');
-        });
-
-        // remove slide class once drag/swipe is completed if mode is not slide
-        setTimeout(function() {
-            if (!_this.$outer.hasClass('lg-dragging') && _this.s.mode !== 'lg-slide') {
-                _this.$outer.removeClass('lg-slide');
+  
+            data.performingSetup = false;
+            // reset & initate the autoPlay
+            autoPlay();
+          }
+        }
+      }
+  
+      /**
+       * Function called to rotate the carousel the given number of rotations
+       * in the given direciton. Will check to make sure the carousel should
+       * be able to move, and then adjust speed and move items
+       */
+      function rotateCarousel(rotations) {
+        // Check to see that a rotation is allowed
+        if (data.currentlyMoving === false) {
+  
+          // Remove active class from the center item while we rotate
+          data.currentCenterItem.removeClass(options.activeClassName);
+  
+          data.currentlyMoving = true;
+          data.itemsAnimating = 0;
+          data.carouselRotationsLeft += rotations;
+          
+          if (options.quickerForFurther === true) {
+            // Figure out how fast the carousel should rotate
+            if (rotations > 1) {
+              data.currentSpeed = options.speed / rotations;
             }
-        }, _this.s.speed + 100);
-
-    };
-
-    Plugin.prototype.enableSwipe = function() {
-        var _this = this;
-        var startCoords = 0;
-        var endCoords = 0;
-        var isMoved = false;
-
-        if (_this.s.enableSwipe && _this.doCss()) {
-
-            _this.$slide.on('touchstart.lg', function(e) {
-                if (!_this.$outer.hasClass('lg-zoomed') && !_this.lgBusy) {
-                    e.preventDefault();
-                    _this.manageSwipeClass();
-                    startCoords = e.originalEvent.targetTouches[0].pageX;
-                }
-            });
-
-            _this.$slide.on('touchmove.lg', function(e) {
-                if (!_this.$outer.hasClass('lg-zoomed')) {
-                    e.preventDefault();
-                    endCoords = e.originalEvent.targetTouches[0].pageX;
-                    _this.touchMove(startCoords, endCoords);
-                    isMoved = true;
-                }
-            });
-
-            _this.$slide.on('touchend.lg', function() {
-                if (!_this.$outer.hasClass('lg-zoomed')) {
-                    if (isMoved) {
-                        isMoved = false;
-                        _this.touchEnd(endCoords - startCoords);
-                    } else {
-                        _this.$el.trigger('onSlideClick.lg');
-                    }
-                }
-            });
-        }
-
-    };
-
-    Plugin.prototype.enableDrag = function() {
-        var _this = this;
-        var startCoords = 0;
-        var endCoords = 0;
-        var isDraging = false;
-        var isMoved = false;
-        if (_this.s.enableDrag && _this.doCss()) {
-            _this.$slide.on('mousedown.lg', function(e) {
-                // execute only on .lg-object
-                if (!_this.$outer.hasClass('lg-zoomed')) {
-                    if ($(e.target).hasClass('lg-object') || $(e.target).hasClass('lg-video-play')) {
-                        e.preventDefault();
-
-                        if (!_this.lgBusy) {
-                            _this.manageSwipeClass();
-                            startCoords = e.pageX;
-                            isDraging = true;
-
-                            // ** Fix for webkit cursor issue https://code.google.com/p/chromium/issues/detail?id=26723
-                            _this.$outer.scrollLeft += 1;
-                            _this.$outer.scrollLeft -= 1;
-
-                            // *
-
-                            _this.$outer.removeClass('lg-grab').addClass('lg-grabbing');
-
-                            _this.$el.trigger('onDragstart.lg');
-                        }
-
-                    }
-                }
-            });
-
-            $(window).on('mousemove.lg', function(e) {
-                if (isDraging) {
-                    isMoved = true;
-                    endCoords = e.pageX;
-                    _this.touchMove(startCoords, endCoords);
-                    _this.$el.trigger('onDragmove.lg');
-                }
-            });
-
-            $(window).on('mouseup.lg', function(e) {
-                if (isMoved) {
-                    isMoved = false;
-                    _this.touchEnd(endCoords - startCoords);
-                    _this.$el.trigger('onDragend.lg');
-                } else if ($(e.target).hasClass('lg-object') || $(e.target).hasClass('lg-video-play')) {
-                    _this.$el.trigger('onSlideClick.lg');
-                }
-
-                // Prevent execution on click
-                if (isDraging) {
-                    isDraging = false;
-                    _this.$outer.removeClass('lg-grabbing').addClass('lg-grab');
-                }
-            });
-
-        }
-    };
-
-    Plugin.prototype.manageSwipeClass = function() {
-        var _touchNext = this.index + 1;
-        var _touchPrev = this.index - 1;
-        if (this.s.loop && this.$slide.length > 2) {
-            if (this.index === 0) {
-                _touchPrev = this.$slide.length - 1;
-            } else if (this.index === this.$slide.length - 1) {
-                _touchNext = 0;
-            }
-        }
-
-        this.$slide.removeClass('lg-next-slide lg-prev-slide');
-        if (_touchPrev > -1) {
-            this.$slide.eq(_touchPrev).addClass('lg-prev-slide');
-        }
-
-        this.$slide.eq(_touchNext).addClass('lg-next-slide');
-    };
-
-    Plugin.prototype.mousewheel = function() {
-        var _this = this;
-        _this.$outer.on('mousewheel.lg', function(e) {
-
-            if (!e.deltaY) {
-                return;
-            }
-
-            if (e.deltaY > 0) {
-                _this.goToPrevSlide();
+            // Assure the speed is above the minimum to avoid weird results
+            data.currentSpeed = (data.currentSpeed < 100) ? 100 : data.currentSpeed;
+          }
+  
+          // Iterate thru each item and move it
+          for (var i = 0; i < data.totalItems; i++) {
+            var $item = $(data.items[i]);
+            var currentPosition = $item.data('currentPosition');
+  
+            var newPosition;
+            if (data.currentDirection == 'forward') {
+              newPosition = currentPosition - 1;
             } else {
-                _this.goToNextSlide();
+              newPosition = currentPosition + 1;
             }
-
+            // We keep both sides as even as possible to allow circular rotation to work.
+            // We will "wrap" the item arround to the other side by negating its current position
+            var flankingAllowance = (newPosition > 0) ? data.rightItemsCount : data.leftItemsCount;
+            if (Math.abs(newPosition) > flankingAllowance) {
+              newPosition = currentPosition * -1;
+              // If there's an uneven number of "flanking" items, we need to compenstate for that
+              // when we have an item switch sides. The right side will always have 1 more in that case
+              if (data.totalItems % 2 == 0) {
+                newPosition += 1;
+              } 
+            }
+  
+            moveItem($item, newPosition);
+          }
+        }
+      }
+  
+      /**
+       * The event handler when an image within the carousel is clicked
+       * This function will rotate the carousel the correct number of rotations
+       * to get the clicked item to the center, or will fire the custom event
+       * the user passed in if the center item is clicked
+       */
+      $(this).find('img').bind("click", function () {
+        var itemPosition = $(this).data().currentPosition;
+  
+        if (options.imageNav == false) {
+          return;
+        }
+        // Don't allow hidden items to be clicked
+        if (Math.abs(itemPosition) >= options.flankingItems + 1) {
+          return;
+        }
+        // Do nothing if the carousel is already moving
+        if (data.currentlyMoving) {
+          return;
+        }
+  
+        data.previousCenterItem = data.currentCenterItem;
+  
+        // Remove autoplay
+        autoPlay(true);
+        options.autoPlay = 0;
+        
+        var rotations = Math.abs(itemPosition);
+        if (itemPosition == 0) {
+          options.clickedCenter($(this));
+        } else {
+          // Fire the 'moving' callbacks
+          options.movingFromCenter(data.currentCenterItem);
+          options.movingToCenter($(this));
+          if (itemPosition < 0) {
+            data.currentDirection = 'backward';
+            rotateCarousel(rotations);
+          } else if (itemPosition > 0) {
+            data.currentDirection = 'forward';
+            rotateCarousel(rotations);
+          }
+        }
+      });
+  
+  
+      /**
+       * The user may choose to wrap the images is link tags. If they do this, we need to
+       * make sure that they aren't active for certain situations
+       */
+      $(this).find('a').bind("click", function (event) {
+        var isCenter = $(this).find('img').data('currentPosition') == 0;
+        // should we disable the links?
+        if (options.linkHandling === 1 || // turn off all links
+            (options.linkHandling === 2 && !isCenter)) // turn off all links except center
+        {
+          event.preventDefault();
+          return false;
+        }
+      });
+  
+      function nextItemFromCenter() {
+        var $next = data.currentCenterItem.next();
+        if ($next.length <= 0) {
+          $next = data.currentCenterItem.parent().children().first();
+        }
+        return $next;
+      }
+  
+      function prevItemFromCenter() {
+        var $prev = data.currentCenterItem.prev();
+        if ($prev.length <= 0) {
+          $prev = data.currentCenterItem.parent().children().last();
+        }
+        return $prev;
+      }
+  
+      /**
+       * Intiate a move of the carousel in either direction. Takes care of firing
+       * the 'moving' callbacks
+       */
+      function moveOnce(direction) {
+        if (data.currentlyMoving === false) {
+          data.previousCenterItem = data.currentCenterItem;
+  
+          options.movingFromCenter(data.currentCenterItem);
+          if (direction == 'backward') {
+            options.movingToCenter(prevItemFromCenter());
+            data.currentDirection = 'backward';
+          } else if (direction == 'forward') {
+            options.movingToCenter(nextItemFromCenter());
+            data.currentDirection = 'forward';
+          }
+        }
+  
+        rotateCarousel(1);
+      }
+      
+      /**
+       * Navigation with arrow keys
+       */
+      $(document).keydown(function(e) {
+        if (options.keyboardNav) {
+          // arrow left or up
+          if ((e.which === 37 && options.orientation == 'horizontal') || (e.which === 38 && options.orientation == 'vertical')) {
+            autoPlay(true);
+            options.autoPlay = 0;
+            moveOnce('backward');
+          // arrow right or down
+          } else if ((e.which === 39 && options.orientation == 'horizontal') || (e.which === 40 && options.orientation == 'vertical')) {
+            autoPlay(true);
+            options.autoPlay = 0;
+            moveOnce('forward');
+          }
+          // should we override the normal functionality for the arrow keys?
+          if (options.keyboardNavOverride && (
+              (options.orientation == 'horizontal' && (e.which === 37 || e.which === 39)) ||
+              (options.orientation == 'vertical' && (e.which === 38 || e.which === 40))
+            )) {
             e.preventDefault();
-        });
-
-    };
-
-    Plugin.prototype.closeGallery = function() {
-
-        var _this = this;
-        var mousedown = false;
-        this.$outer.find('.lg-close').on('click.lg', function() {
-            _this.destroy();
-        });
-
-        if (_this.s.closable) {
-
-            // If you drag the slide and release outside gallery gets close on chrome
-            // for preventing this check mousedown and mouseup happened on .lg-item or lg-outer
-            _this.$outer.on('mousedown.lg', function(e) {
-
-                if ($(e.target).is('.lg-outer') || $(e.target).is('.lg-item ') || $(e.target).is('.lg-img-wrap')) {
-                    mousedown = true;
-                } else {
-                    mousedown = false;
-                }
-
-            });
-
-            _this.$outer.on('mouseup.lg', function(e) {
-
-                if ($(e.target).is('.lg-outer') || $(e.target).is('.lg-item ') || $(e.target).is('.lg-img-wrap') && mousedown) {
-                    if (!_this.$outer.hasClass('lg-dragging')) {
-                        _this.destroy();
-                    }
-                }
-
-            });
-
+            return false;
+          }
         }
-
-    };
-
-    Plugin.prototype.destroy = function(d) {
-
-        var _this = this;
-
-        if (!d) {
-            _this.$el.trigger('onBeforeClose.lg');
-            $(window).scrollTop(_this.prevScrollTop);
+      });
+  
+      /**
+       * Public API methods
+       */
+      this.reload = function (newOptions) {
+        if (typeof newOptions === "object") {
+          var combineDefaultWith = newOptions;
+        } else {
+          var combineDefaultWith = {};
         }
-
-
-        /**
-         * if d is false or undefined destroy will only close the gallery
-         * plugins instance remains with the element
-         *
-         * if d is true destroy will completely remove the plugin
-         */
-
-        if (d) {
-            if (!_this.s.dynamic) {
-                // only when not using dynamic mode is $items a jquery collection
-                this.$items.off('click.lg click.lgcustom');
-            }
-
-            $.removeData(_this.el, 'lightGallery');
-        }
-
-        // Unbind all events added by lightGallery
-        this.$el.off('.lg.tm');
-
-        // Distroy all lightGallery modules
-        $.each($.fn.lightGallery.modules, function(key) {
-            if (_this.modules[key]) {
-                _this.modules[key].destroy();
-            }
+        options = $.extend({}, $.fn.waterwheelCarousel.defaults, newOptions);
+  
+        initializeCarouselData();
+        data.itemsContainer.find('img').hide();
+        forceImageDimensionsIfEnabled();
+  
+        preload(function () {
+          setOriginalItemDimensions();
+          preCalculatePositionProperties();
+          setupCarousel();
+          setupStarterRotation();
         });
-
-        this.lGalleryOn = false;
-
-        clearTimeout(_this.hideBartimeout);
-        this.hideBartimeout = false;
-        $(window).off('.lg');
-        $('body').removeClass('lg-on lg-from-hash');
-
-        if (_this.$outer) {
-            _this.$outer.removeClass('lg-visible');
-        }
-
-        $('.lg-backdrop').removeClass('in');
-
-        setTimeout(function() {
-            if (_this.$outer) {
-                _this.$outer.remove();
-            }
-
-            $('.lg-backdrop').remove();
-
-            if (!d) {
-                _this.$el.trigger('onCloseAfter.lg');
-            }
-
-        }, _this.s.backdropDuration + 50);
+      }
+      
+      this.next = function() {
+        autoPlay(true);
+        options.autoPlay = 0;
+  
+        moveOnce('forward');
+      }
+      this.prev = function () {
+        autoPlay(true);
+        options.autoPlay = 0;
+  
+        moveOnce('backward');
+      }
+  
+      this.reload(startingOptions);
+  
+      return this;
     };
-
-    $.fn.lightGallery = function(options) {
-        return this.each(function() {
-            if (!$.data(this, 'lightGallery')) {
-                $.data(this, 'lightGallery', new Plugin(this, options));
-            } else {
-                try {
-                    $(this).data('lightGallery').init();
-                } catch (err) {
-                    console.error('lightGallery has not initiated properly');
-                }
-            }
-        });
+  
+    $.fn.waterwheelCarousel.defaults = {
+      // number tweeks to change apperance
+      startingItem:               1,   // item to place in the center of the carousel. Set to 0 for auto
+      separation:                 175, // distance between items in carousel
+      separationMultiplier:       0.6, // multipled by separation distance to increase/decrease distance for each additional item
+      horizonOffset:              0,   // offset each item from the "horizon" by this amount (causes arching)
+      horizonOffsetMultiplier:    1,   // multipled by horizon offset to increase/decrease offset for each additional item
+      sizeMultiplier:             0.7, // determines how drastically the size of each item changes
+      opacityMultiplier:          0.8, // determines how drastically the opacity of each item changes
+      horizon:                    0,   // how "far in" the horizontal/vertical horizon should be set from the container wall. 0 for auto
+      flankingItems:              3,   // the number of items visible on either side of the center                  
+  
+      // animation
+      speed:                      300,      // speed in milliseconds it will take to rotate from one to the next
+      animationEasing:            'linear', // the easing effect to use when animating
+      quickerForFurther:          true,     // set to true to make animations faster when clicking an item that is far away from the center
+      edgeFadeEnabled:            false,    // when true, items fade off into nothingness when reaching the edge. false to have them move behind the center image
+      
+      // misc
+      linkHandling:               2,                 // 1 to disable all (used for facebox), 2 to disable all but center (to link images out)
+      autoPlay:                   0,                 // indicate the speed in milliseconds to wait before autorotating. 0 to turn off. Can be negative
+      orientation:                'horizontal',      // indicate if the carousel should be 'horizontal' or 'vertical'
+      activeClassName:            'carousel-center', // the name of the class given to the current item in the center
+      keyboardNav:                false,             // set to true to move the carousel with the arrow keys
+      keyboardNavOverride:        true,              // set to true to override the normal functionality of the arrow keys (prevents scrolling)
+      imageNav:                   true,              // clicking a non-center image will rotate that image to the center
+  
+      // preloader
+      preloadImages:              true,  // disable/enable the image preloader. 
+      forcedImageWidth:           0,     // specify width of all images; otherwise the carousel tries to calculate it
+      forcedImageHeight:          0,     // specify height of all images; otherwise the carousel tries to calculate it
+  
+      // callback functions
+      movingToCenter:             $.noop, // fired when an item is about to move to the center position
+      movedToCenter:              $.noop, // fired when an item has finished moving to the center
+      clickedCenter:              $.noop, // fired when the center item has been clicked
+      movingFromCenter:           $.noop, // fired when an item is about to leave the center position
+      movedFromCenter:            $.noop  // fired when an item has finished moving from the center
     };
-
-    $.fn.lightGallery.modules = {};
-
-})();
+  
+})(jQuery);
+  

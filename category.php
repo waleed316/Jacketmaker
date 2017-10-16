@@ -29,7 +29,7 @@
                 <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12">
                     <ul class="products-list">
                         <li>
-                            <a href="#">
+                            <a href="product.php">
                                 <div class="products">
                                     <img src="images/summer-leather-jacket-for-men.png" alt="">
                                 </div>
@@ -71,7 +71,7 @@
 
                     <ul class="products-list">
                         <li>
-                            <a href="#">
+                            <a href="product.php">
                                 <div class="products">
                                     <img src="images/summer-leather-jacket-for-men.png" alt="">
                                 </div>

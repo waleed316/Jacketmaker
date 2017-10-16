@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <?php require './navigations/header.php' ?>  
+   
   </head>
   <body>
     <?php include './navigations/navigation.php' ?>
@@ -94,6 +95,26 @@
         </div>
     </div>
 
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                <div id="carousel">
+                    <a href="#"><img src="images/c1.jpg" class="img-fluid" id="item-1" /></a>
+                    <a href="#"><img src="images/c2.jpg" class="img-fluid" id="item-2" /></a>
+                    <a href="#"><img src="images/c3.jpg" class="img-fluid" id="item-3" /></a>
+                    <a href="#"><img src="images/c4.jpg" class="img-fluid" id="item-4" /></a>
+                    <!-- <a href="#"><img src="images/5.jpg" id="item-5" /></a>
+                    <a href="#"><img src="images/6.jpg" id="item-6" /></a>
+                    <a href="#"><img src="images/7.jpg" id="item-7" /></a>
+                    <a href="#"><img src="images/8.jpg" id="item-8" /></a>
+                    <a href="#"><img src="images/9.jpg" id="item-9" /></a> -->
+                </div>
+                    <a href="#" id="prev">Prev</a> | <a href="#" id="next">Next</a>
+                
+            </div>
+        </div>
+    </div>  
+
     <!-- men's Leather Jacket -->
     <div class="container-fluid margin-top">
         <div class="container">
@@ -165,5 +186,44 @@
     </div>
 
     <?php require './navigations/footer.php' ?>  
+    <script type="text/javascript">
+      $(document).ready(function () {
+        var carousel = $("#carousel").waterwheelCarousel({
+          flankingItems: 3,
+          movingToCenter: function ($item) {
+            $('#callback-output').prepend('movingToCenter: ' + $item.attr('id') + '<br/>');
+          },
+          movedToCenter: function ($item) {
+            $('#callback-output').prepend('movedToCenter: ' + $item.attr('id') + '<br/>');
+          },
+          movingFromCenter: function ($item) {
+            $('#callback-output').prepend('movingFromCenter: ' + $item.attr('id') + '<br/>');
+          },
+          movedFromCenter: function ($item) {
+            $('#callback-output').prepend('movedFromCenter: ' + $item.attr('id') + '<br/>');
+          },
+          clickedCenter: function ($item) {
+            $('#callback-output').prepend('clickedCenter: ' + $item.attr('id') + '<br/>');
+          }
+        });
+
+        $('#prev').bind('click', function () {
+          carousel.prev();
+          return false
+        });
+
+        $('#next').bind('click', function () {
+          carousel.next();
+          return false;
+        });
+
+        $('#reload').bind('click', function () {
+          newOptions = eval("(" + $('#newoptions').val() + ")");
+          carousel.reload(newOptions);
+          return false;
+        });
+
+      });
+    </script>
   </body>
 </html>
