@@ -1,0 +1,11 @@
+.article {
+  margin-top: 3%;
+  widows: 100%;
+  background-color: blue;
+  border: 1px solid green;
+  padding: 0% !important; }
+  .article:hover {
+    background-color: black;
+    color: red; }
+
+/*# sourceMappingURL=style.css.map */
