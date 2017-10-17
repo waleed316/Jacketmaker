@@ -98,19 +98,207 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                <div id="carousel">
-                    <a href="#"><img src="images/c1.jpg" class="img-fluid" id="item-1" /></a>
-                    <a href="#"><img src="images/c2.jpg" class="img-fluid" id="item-2" /></a>
-                    <a href="#"><img src="images/c3.jpg" class="img-fluid" id="item-3" /></a>
-                    <a href="#"><img src="images/c4.jpg" class="img-fluid" id="item-4" /></a>
-                    <!-- <a href="#"><img src="images/5.jpg" id="item-5" /></a>
-                    <a href="#"><img src="images/6.jpg" id="item-6" /></a>
-                    <a href="#"><img src="images/7.jpg" id="item-7" /></a>
-                    <a href="#"><img src="images/8.jpg" id="item-8" /></a>
-                    <a href="#"><img src="images/9.jpg" id="item-9" /></a> -->
+                <div class="w-gallery mt-5">
+                    <section id="responsiveGallery-container" class="responsiveGallery-container">
+                        <a class="responsiveGallery-btn responsiveGallery-btn_prev" href="javascript:void(0);"></a> 
+                        <a class="responsiveGallery-btn responsiveGallery-btn_next" href="javascript:void(0);"></a>
+                        <h6 class="display-5 text-center mb-5">Men's Leather Jacket</h6>
+                        <ul class="responsiveGallery-wrapper">
+                            <li class="responsiveGallery-item"><a class="responsivGallery-link"><img src="images/bg1.jpg" height="320" width="320" alt="" class="responsivGallery-pic"></a>
+                                <!-- <div class="w-responsivGallery-info">
+                                    <h2 class="responsivGallery-name">Google</h2>
+                                    <h3 class="responsivGallery-position">www.google.com</h3>
+                                </div> -->
+                            </li>
+                            <li class="responsiveGallery-item"> <a class="responsivGallery-link"><img src="images/bg1.jpg" height="320" width="320" alt="" class="responsivGallery-pic"></a>
+                                <!-- <div class="w-responsivGallery-info">
+                                    <h2 class="responsivGallery-name">Facebook</h2>
+                                    <h3 class="responsivGallery-position">www.facebook.com</h3>
+                                </div> -->
+                            </li>
+                            <li class="responsiveGallery-item"> <a class="responsivGallery-link"><img src="images/bg1.jpg" height="320" width="320" alt="" class="responsivGallery-pic"></a>
+                                <!-- <div class="w-responsivGallery-info">
+                                    <h2 class="responsivGallery-name">Twitter</h2>
+                                    <h3 class="responsivGallery-position">www.twitter.com</h3>
+                                </div> -->
+                            </li>
+                            <li class="responsiveGallery-item"> <a class="responsivGallery-link"><img src="images/bg1.jpg" height="320" width="320" alt="" class="responsivGallery-pic"></a>
+                                <!-- <div class="w-responsivGallery-info">
+                                    <h2 class="responsivGallery-name">jQuery</h2>
+                                    <h3 class="responsivGallery-position">www.jquery.com</h3>
+                                </div> -->
+                            </li>
+                            <li class="responsiveGallery-item"> <a class="responsivGallery-link"><img src="images/bg1.jpg" height="320" width="320" alt="" class="responsivGallery-pic"></a>
+                                <!-- <div class="w-responsivGallery-info">
+                                    <h2 class="responsivGallery-name">jQuery UI</h2>
+                                    <h3 class="responsivGallery-position">www.jqueryui.com</h3>
+                                </div> -->
+                            </li>
+                            <li class="responsiveGallery-item"> <a class="responsivGallery-link"><img src="images/bg1.jpg" height="320" width="320" alt="" class="responsivGallery-pic"></a>
+                                <!-- <div class="w-responsivGallery-info">
+                                    <h2 class="responsivGallery-name">W3C</h2>
+                                    <h3 class="responsivGallery-position">www.w3c.org</h3>
+                                </div> -->
+                            </li>
+                            <li class="responsiveGallery-item"> <a class="responsivGallery-link"><img src="images/bg1.jpg" height="320" width="320" alt="" class="responsivGallery-pic"></a>
+                                <!-- <div class="w-responsivGallery-info">
+                                    <h2 class="responsivGallery-name">Github</h2>
+                                    <h3 class="responsivGallery-position">www.github.com</h3>
+                                </div> -->
+                            </li>
+                            <li class="responsiveGallery-item"> <a class="responsivGallery-link"><img src="images/bg1.jpg" height="320" width="320" alt="" class="responsivGallery-pic"></a>
+                                <div class="w-responsivGallery-info">
+                                <h2 class="responsivGallery-name">Linkedin</h2>
+                                <h3 class="responsivGallery-position">www.linkedin.com</h3>
+                                </div>
+                            </li>
+                            <li class="responsiveGallery-item"> <a class="responsivGallery-link"><img src="images/bg1.jpg" height="320" width="320" alt="" class="responsivGallery-pic"></a>
+                                <!-- <div class="w-responsivGallery-info">
+                                    <h2 class="responsivGallery-name">Tumblr</h2>
+                                    <h3 class="responsivGallery-position">www.tumblr.net</h3>
+                                </div> -->
+                            </li>
+                        </ul>
+                    </section>
                 </div>
-                    <a href="#" id="prev">Prev</a> | <a href="#" id="next">Next</a>
-                
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                <div class="w-gallery mt-5">
+                    <section id="responsiveGallery-container" class="responsiveGallery-container">
+                        <a class="responsiveGallery-btn responsiveGallery-btn_prev" href="javascript:void(0);"></a> 
+                        <a class="responsiveGallery-btn responsiveGallery-btn_next" href="javascript:void(0);"></a>
+                        <h6 class="display-5 text-center mb-5">Men's Leather Jacket</h6>
+                        <ul class="responsiveGallery-wrapper">
+                            <li class="responsiveGallery-item"><a class="responsivGallery-link"><img src="images/bg1.jpg" height="320" width="320" alt="" class="responsivGallery-pic"></a>
+                                <!-- <div class="w-responsivGallery-info">
+                                    <h2 class="responsivGallery-name">Google</h2>
+                                    <h3 class="responsivGallery-position">www.google.com</h3>
+                                </div> -->
+                            </li>
+                            <li class="responsiveGallery-item"> <a class="responsivGallery-link"><img src="images/bg1.jpg" height="320" width="320" alt="" class="responsivGallery-pic"></a>
+                                <!-- <div class="w-responsivGallery-info">
+                                    <h2 class="responsivGallery-name">Facebook</h2>
+                                    <h3 class="responsivGallery-position">www.facebook.com</h3>
+                                </div> -->
+                            </li>
+                            <li class="responsiveGallery-item"> <a class="responsivGallery-link"><img src="images/bg1.jpg" height="320" width="320" alt="" class="responsivGallery-pic"></a>
+                                <!-- <div class="w-responsivGallery-info">
+                                    <h2 class="responsivGallery-name">Twitter</h2>
+                                    <h3 class="responsivGallery-position">www.twitter.com</h3>
+                                </div> -->
+                            </li>
+                            <li class="responsiveGallery-item"> <a class="responsivGallery-link"><img src="images/bg1.jpg" height="320" width="320" alt="" class="responsivGallery-pic"></a>
+                                <!-- <div class="w-responsivGallery-info">
+                                    <h2 class="responsivGallery-name">jQuery</h2>
+                                    <h3 class="responsivGallery-position">www.jquery.com</h3>
+                                </div> -->
+                            </li>
+                            <li class="responsiveGallery-item"> <a class="responsivGallery-link"><img src="images/bg1.jpg" height="320" width="320" alt="" class="responsivGallery-pic"></a>
+                                <!-- <div class="w-responsivGallery-info">
+                                    <h2 class="responsivGallery-name">jQuery UI</h2>
+                                    <h3 class="responsivGallery-position">www.jqueryui.com</h3>
+                                </div> -->
+                            </li>
+                            <li class="responsiveGallery-item"> <a class="responsivGallery-link"><img src="images/bg1.jpg" height="320" width="320" alt="" class="responsivGallery-pic"></a>
+                                <!-- <div class="w-responsivGallery-info">
+                                    <h2 class="responsivGallery-name">W3C</h2>
+                                    <h3 class="responsivGallery-position">www.w3c.org</h3>
+                                </div> -->
+                            </li>
+                            <li class="responsiveGallery-item"> <a class="responsivGallery-link"><img src="images/bg1.jpg" height="320" width="320" alt="" class="responsivGallery-pic"></a>
+                                <!-- <div class="w-responsivGallery-info">
+                                    <h2 class="responsivGallery-name">Github</h2>
+                                    <h3 class="responsivGallery-position">www.github.com</h3>
+                                </div> -->
+                            </li>
+                            <li class="responsiveGallery-item"> <a class="responsivGallery-link"><img src="images/bg1.jpg" height="320" width="320" alt="" class="responsivGallery-pic"></a>
+                                <div class="w-responsivGallery-info">
+                                <h2 class="responsivGallery-name">Linkedin</h2>
+                                <h3 class="responsivGallery-position">www.linkedin.com</h3>
+                                </div>
+                            </li>
+                            <li class="responsiveGallery-item"> <a class="responsivGallery-link"><img src="images/bg1.jpg" height="320" width="320" alt="" class="responsivGallery-pic"></a>
+                                <!-- <div class="w-responsivGallery-info">
+                                    <h2 class="responsivGallery-name">Tumblr</h2>
+                                    <h3 class="responsivGallery-position">www.tumblr.net</h3>
+                                </div> -->
+                            </li>
+                        </ul>
+                    </section>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                <div class="w-gallery mt-5">
+                    <section id="responsiveGallery-container" class="responsiveGallery-container">
+                        <a class="responsiveGallery-btn responsiveGallery-btn_prev" href="javascript:void(0);"></a> 
+                        <a class="responsiveGallery-btn responsiveGallery-btn_next" href="javascript:void(0);"></a>
+                        <h6 class="display-5 text-center mb-5">Men's Leather Jacket</h6>
+                        <ul class="responsiveGallery-wrapper">
+                            <li class="responsiveGallery-item"><a class="responsivGallery-link"><img src="images/bg1.jpg" height="320" width="320" alt="" class="responsivGallery-pic"></a>
+                                <!-- <div class="w-responsivGallery-info">
+                                    <h2 class="responsivGallery-name">Google</h2>
+                                    <h3 class="responsivGallery-position">www.google.com</h3>
+                                </div> -->
+                            </li>
+                            <li class="responsiveGallery-item"> <a class="responsivGallery-link"><img src="images/bg1.jpg" height="320" width="320" alt="" class="responsivGallery-pic"></a>
+                                <!-- <div class="w-responsivGallery-info">
+                                    <h2 class="responsivGallery-name">Facebook</h2>
+                                    <h3 class="responsivGallery-position">www.facebook.com</h3>
+                                </div> -->
+                            </li>
+                            <li class="responsiveGallery-item"> <a class="responsivGallery-link"><img src="images/bg1.jpg" height="320" width="320" alt="" class="responsivGallery-pic"></a>
+                                <!-- <div class="w-responsivGallery-info">
+                                    <h2 class="responsivGallery-name">Twitter</h2>
+                                    <h3 class="responsivGallery-position">www.twitter.com</h3>
+                                </div> -->
+                            </li>
+                            <li class="responsiveGallery-item"> <a class="responsivGallery-link"><img src="images/bg1.jpg" height="320" width="320" alt="" class="responsivGallery-pic"></a>
+                                <!-- <div class="w-responsivGallery-info">
+                                    <h2 class="responsivGallery-name">jQuery</h2>
+                                    <h3 class="responsivGallery-position">www.jquery.com</h3>
+                                </div> -->
+                            </li>
+                            <li class="responsiveGallery-item"> <a class="responsivGallery-link"><img src="images/bg1.jpg" height="320" width="320" alt="" class="responsivGallery-pic"></a>
+                                <!-- <div class="w-responsivGallery-info">
+                                    <h2 class="responsivGallery-name">jQuery UI</h2>
+                                    <h3 class="responsivGallery-position">www.jqueryui.com</h3>
+                                </div> -->
+                            </li>
+                            <li class="responsiveGallery-item"> <a class="responsivGallery-link"><img src="images/bg1.jpg" height="320" width="320" alt="" class="responsivGallery-pic"></a>
+                                <!-- <div class="w-responsivGallery-info">
+                                    <h2 class="responsivGallery-name">W3C</h2>
+                                    <h3 class="responsivGallery-position">www.w3c.org</h3>
+                                </div> -->
+                            </li>
+                            <li class="responsiveGallery-item"> <a class="responsivGallery-link"><img src="images/bg1.jpg" height="320" width="320" alt="" class="responsivGallery-pic"></a>
+                                <!-- <div class="w-responsivGallery-info">
+                                    <h2 class="responsivGallery-name">Github</h2>
+                                    <h3 class="responsivGallery-position">www.github.com</h3>
+                                </div> -->
+                            </li>
+                            <li class="responsiveGallery-item"> <a class="responsivGallery-link"><img src="images/bg1.jpg" height="320" width="320" alt="" class="responsivGallery-pic"></a>
+                                <!-- <div class="w-responsivGallery-info">
+                                <h2 class="responsivGallery-name">Linkedin</h2>
+                                <h3 class="responsivGallery-position">www.linkedin.com</h3>
+                                </div> -->
+                            </li>
+                            <li class="responsiveGallery-item"> <a class="responsivGallery-link"><img src="images/bg1.jpg" height="320" width="320" alt="" class="responsivGallery-pic"></a>
+                                <!-- <div class="w-responsivGallery-info">
+                                    <h2 class="responsivGallery-name">Tumblr</h2>
+                                    <h3 class="responsivGallery-position">www.tumblr.net</h3>
+                                </div> -->
+                            </li>
+                        </ul>
+                    </section>
+                </div>
             </div>
         </div>
     </div>  
@@ -187,43 +375,13 @@
 
     <?php require './navigations/footer.php' ?>  
     <script type="text/javascript">
-      $(document).ready(function () {
-        var carousel = $("#carousel").waterwheelCarousel({
-          flankingItems: 3,
-          movingToCenter: function ($item) {
-            $('#callback-output').prepend('movingToCenter: ' + $item.attr('id') + '<br/>');
-          },
-          movedToCenter: function ($item) {
-            $('#callback-output').prepend('movedToCenter: ' + $item.attr('id') + '<br/>');
-          },
-          movingFromCenter: function ($item) {
-            $('#callback-output').prepend('movingFromCenter: ' + $item.attr('id') + '<br/>');
-          },
-          movedFromCenter: function ($item) {
-            $('#callback-output').prepend('movedFromCenter: ' + $item.attr('id') + '<br/>');
-          },
-          clickedCenter: function ($item) {
-            $('#callback-output').prepend('clickedCenter: ' + $item.attr('id') + '<br/>');
-          }
+		$(function () {
+            $('.responsiveGallery-wrapper').responsiveGallery({
+                animatDuration: 400, 
+                $btn_prev: $('.responsiveGallery-btn_prev'),
+                $btn_next: $('.responsiveGallery-btn_next')
+            });
         });
-
-        $('#prev').bind('click', function () {
-          carousel.prev();
-          return false
-        });
-
-        $('#next').bind('click', function () {
-          carousel.next();
-          return false;
-        });
-
-        $('#reload').bind('click', function () {
-          newOptions = eval("(" + $('#newoptions').val() + ")");
-          carousel.reload(newOptions);
-          return false;
-        });
-
-      });
-    </script>
+	</script>
   </body>
 </html>
