@@ -1139,287 +1139,361 @@
     };
 }(jQuery));
 
-/* Modernizr 2.8.2 (Custom Build) | MIT & BSD
- * Build: http://modernizr.com/download/#-csstransforms-csstransforms3d-csstransitions-touch-shiv-cssclasses-teststyles-testprop-testallprops-prefixes-domprefixes-load
- */
-;window.Modernizr=function(a,b,c){function z(a){j.cssText=a}function A(a,b){return z(m.join(a+";")+(b||""))}function B(a,b){return typeof a===b}function C(a,b){return!!~(""+a).indexOf(b)}function D(a,b){for(var d in a){var e=a[d];if(!C(e,"-")&&j[e]!==c)return b=="pfx"?e:!0}return!1}function E(a,b,d){for(var e in a){var f=b[a[e]];if(f!==c)return d===!1?a[e]:B(f,"function")?f.bind(d||b):f}return!1}function F(a,b,c){var d=a.charAt(0).toUpperCase()+a.slice(1),e=(a+" "+o.join(d+" ")+d).split(" ");return B(b,"string")||B(b,"undefined")?D(e,b):(e=(a+" "+p.join(d+" ")+d).split(" "),E(e,b,c))}var d="2.8.2",e={},f=!0,g=b.documentElement,h="modernizr",i=b.createElement(h),j=i.style,k,l={}.toString,m=" -webkit- -moz- -o- -ms- ".split(" "),n="Webkit Moz O ms",o=n.split(" "),p=n.toLowerCase().split(" "),q={},r={},s={},t=[],u=t.slice,v,w=function(a,c,d,e){var f,i,j,k,l=b.createElement("div"),m=b.body,n=m||b.createElement("body");if(parseInt(d,10))while(d--)j=b.createElement("div"),j.id=e?e[d]:h+(d+1),l.appendChild(j);return f=["&#173;",'<style id="s',h,'">',a,"</style>"].join(""),l.id=h,(m?l:n).innerHTML+=f,n.appendChild(l),m||(n.style.background="",n.style.overflow="hidden",k=g.style.overflow,g.style.overflow="hidden",g.appendChild(n)),i=c(l,a),m?l.parentNode.removeChild(l):(n.parentNode.removeChild(n),g.style.overflow=k),!!i},x={}.hasOwnProperty,y;!B(x,"undefined")&&!B(x.call,"undefined")?y=function(a,b){return x.call(a,b)}:y=function(a,b){return b in a&&B(a.constructor.prototype[b],"undefined")},Function.prototype.bind||(Function.prototype.bind=function(b){var c=this;if(typeof c!="function")throw new TypeError;var d=u.call(arguments,1),e=function(){if(this instanceof e){var a=function(){};a.prototype=c.prototype;var f=new a,g=c.apply(f,d.concat(u.call(arguments)));return Object(g)===g?g:f}return c.apply(b,d.concat(u.call(arguments)))};return e}),q.touch=function(){var c;return"ontouchstart"in a||a.DocumentTouch&&b instanceof DocumentTouch?c=!0:w(["@media (",m.join("touch-enabled),("),h,")","{#modernizr{top:9px;position:absolute}}"].join(""),function(a){c=a.offsetTop===9}),c},q.csstransforms=function(){return!!F("transform")},q.csstransforms3d=function(){var a=!!F("perspective");return a&&"webkitPerspective"in g.style&&w("@media (transform-3d),(-webkit-transform-3d){#modernizr{left:9px;position:absolute;height:3px;}}",function(b,c){a=b.offsetLeft===9&&b.offsetHeight===3}),a},q.csstransitions=function(){return F("transition")};for(var G in q)y(q,G)&&(v=G.toLowerCase(),e[v]=q[G](),t.push((e[v]?"":"no-")+v));return e.addTest=function(a,b){if(typeof a=="object")for(var d in a)y(a,d)&&e.addTest(d,a[d]);else{a=a.toLowerCase();if(e[a]!==c)return e;b=typeof b=="function"?b():b,typeof f!="undefined"&&f&&(g.className+=" "+(b?"":"no-")+a),e[a]=b}return e},z(""),i=k=null,function(a,b){function l(a,b){var c=a.createElement("p"),d=a.getElementsByTagName("head")[0]||a.documentElement;return c.innerHTML="x<style>"+b+"</style>",d.insertBefore(c.lastChild,d.firstChild)}function m(){var a=s.elements;return typeof a=="string"?a.split(" "):a}function n(a){var b=j[a[h]];return b||(b={},i++,a[h]=i,j[i]=b),b}function o(a,c,d){c||(c=b);if(k)return c.createElement(a);d||(d=n(c));var g;return d.cache[a]?g=d.cache[a].cloneNode():f.test(a)?g=(d.cache[a]=d.createElem(a)).cloneNode():g=d.createElem(a),g.canHaveChildren&&!e.test(a)&&!g.tagUrn?d.frag.appendChild(g):g}function p(a,c){a||(a=b);if(k)return a.createDocumentFragment();c=c||n(a);var d=c.frag.cloneNode(),e=0,f=m(),g=f.length;for(;e<g;e++)d.createElement(f[e]);return d}function q(a,b){b.cache||(b.cache={},b.createElem=a.createElement,b.createFrag=a.createDocumentFragment,b.frag=b.createFrag()),a.createElement=function(c){return s.shivMethods?o(c,a,b):b.createElem(c)},a.createDocumentFragment=Function("h,f","return function(){var n=f.cloneNode(),c=n.createElement;h.shivMethods&&("+m().join().replace(/[\w\-]+/g,function(a){return b.createElem(a),b.frag.createElement(a),'c("'+a+'")'})+");return n}")(s,b.frag)}function r(a){a||(a=b);var c=n(a);return s.shivCSS&&!g&&!c.hasCSS&&(c.hasCSS=!!l(a,"article,aside,dialog,figcaption,figure,footer,header,hgroup,main,nav,section{display:block}mark{background:#FF0;color:#000}template{display:none}")),k||q(a,c),a}var c="3.7.0",d=a.html5||{},e=/^<|^(?:button|map|select|textarea|object|iframe|option|optgroup)$/i,f=/^(?:a|b|code|div|fieldset|h1|h2|h3|h4|h5|h6|i|label|li|ol|p|q|span|strong|style|table|tbody|td|th|tr|ul)$/i,g,h="_html5shiv",i=0,j={},k;(function(){try{var a=b.createElement("a");a.innerHTML="<xyz></xyz>",g="hidden"in a,k=a.childNodes.length==1||function(){b.createElement("a");var a=b.createDocumentFragment();return typeof a.cloneNode=="undefined"||typeof a.createDocumentFragment=="undefined"||typeof a.createElement=="undefined"}()}catch(c){g=!0,k=!0}})();var s={elements:d.elements||"abbr article aside audio bdi canvas data datalist details dialog figcaption figure footer header hgroup main mark meter nav output progress section summary template time video",version:c,shivCSS:d.shivCSS!==!1,supportsUnknownElements:k,shivMethods:d.shivMethods!==!1,type:"default",shivDocument:r,createElement:o,createDocumentFragment:p};a.html5=s,r(b)}(this,b),e._version=d,e._prefixes=m,e._domPrefixes=p,e._cssomPrefixes=o,e.testProp=function(a){return D([a])},e.testAllProps=F,e.testStyles=w,g.className=g.className.replace(/(^|\s)no-js(\s|$)/,"$1$2")+(f?" js "+t.join(" "):""),e}(this,this.document),function(a,b,c){function d(a){return"[object Function]"==o.call(a)}function e(a){return"string"==typeof a}function f(){}function g(a){return!a||"loaded"==a||"complete"==a||"uninitialized"==a}function h(){var a=p.shift();q=1,a?a.t?m(function(){("c"==a.t?B.injectCss:B.injectJs)(a.s,0,a.a,a.x,a.e,1)},0):(a(),h()):q=0}function i(a,c,d,e,f,i,j){function k(b){if(!o&&g(l.readyState)&&(u.r=o=1,!q&&h(),l.onload=l.onreadystatechange=null,b)){"img"!=a&&m(function(){t.removeChild(l)},50);for(var d in y[c])y[c].hasOwnProperty(d)&&y[c][d].onload()}}var j=j||B.errorTimeout,l=b.createElement(a),o=0,r=0,u={t:d,s:c,e:f,a:i,x:j};1===y[c]&&(r=1,y[c]=[]),"object"==a?l.data=c:(l.src=c,l.type=a),l.width=l.height="0",l.onerror=l.onload=l.onreadystatechange=function(){k.call(this,r)},p.splice(e,0,u),"img"!=a&&(r||2===y[c]?(t.insertBefore(l,s?null:n),m(k,j)):y[c].push(l))}function j(a,b,c,d,f){return q=0,b=b||"j",e(a)?i("c"==b?v:u,a,b,this.i++,c,d,f):(p.splice(this.i++,0,a),1==p.length&&h()),this}function k(){var a=B;return a.loader={load:j,i:0},a}var l=b.documentElement,m=a.setTimeout,n=b.getElementsByTagName("script")[0],o={}.toString,p=[],q=0,r="MozAppearance"in l.style,s=r&&!!b.createRange().compareNode,t=s?l:n.parentNode,l=a.opera&&"[object Opera]"==o.call(a.opera),l=!!b.attachEvent&&!l,u=r?"object":l?"script":"img",v=l?"script":u,w=Array.isArray||function(a){return"[object Array]"==o.call(a)},x=[],y={},z={timeout:function(a,b){return b.length&&(a.timeout=b[0]),a}},A,B;B=function(a){function b(a){var a=a.split("!"),b=x.length,c=a.pop(),d=a.length,c={url:c,origUrl:c,prefixes:a},e,f,g;for(f=0;f<d;f++)g=a[f].split("="),(e=z[g.shift()])&&(c=e(c,g));for(f=0;f<b;f++)c=x[f](c);return c}function g(a,e,f,g,h){var i=b(a),j=i.autoCallback;i.url.split(".").pop().split("?").shift(),i.bypass||(e&&(e=d(e)?e:e[a]||e[g]||e[a.split("/").pop().split("?")[0]]),i.instead?i.instead(a,e,f,g,h):(y[i.url]?i.noexec=!0:y[i.url]=1,f.load(i.url,i.forceCSS||!i.forceJS&&"css"==i.url.split(".").pop().split("?").shift()?"c":c,i.noexec,i.attrs,i.timeout),(d(e)||d(j))&&f.load(function(){k(),e&&e(i.origUrl,h,g),j&&j(i.origUrl,h,g),y[i.url]=2})))}function h(a,b){function c(a,c){if(a){if(e(a))c||(j=function(){var a=[].slice.call(arguments);k.apply(this,a),l()}),g(a,j,b,0,h);else if(Object(a)===a)for(n in m=function(){var b=0,c;for(c in a)a.hasOwnProperty(c)&&b++;return b}(),a)a.hasOwnProperty(n)&&(!c&&!--m&&(d(j)?j=function(){var a=[].slice.call(arguments);k.apply(this,a),l()}:j[n]=function(a){return function(){var b=[].slice.call(arguments);a&&a.apply(this,b),l()}}(k[n])),g(a[n],j,b,n,h))}else!c&&l()}var h=!!a.test,i=a.load||a.both,j=a.callback||f,k=j,l=a.complete||f,m,n;c(h?a.yep:a.nope,!!i),i&&c(i)}var i,j,l=this.yepnope.loader;if(e(a))g(a,0,l,0);else if(w(a))for(i=0;i<a.length;i++)j=a[i],e(j)?g(j,0,l,0):w(j)?B(j):Object(j)===j&&h(j,l);else Object(a)===a&&h(a,l)},B.addPrefix=function(a,b){z[a]=b},B.addFilter=function(a){x.push(a)},B.errorTimeout=1e4,null==b.readyState&&b.addEventListener&&(b.readyState="loading",b.addEventListener("DOMContentLoaded",A=function(){b.removeEventListener("DOMContentLoaded",A,0),b.readyState="complete"},0)),a.yepnope=k(),a.yepnope.executeStack=h,a.yepnope.injectJs=function(a,c,d,e,i,j){var k=b.createElement("script"),l,o,e=e||B.errorTimeout;k.src=a;for(o in d)k.setAttribute(o,d[o]);c=j?h:c||f,k.onreadystatechange=k.onload=function(){!l&&g(k.readyState)&&(l=1,c(),k.onload=k.onreadystatechange=null)},m(function(){l||(l=1,c(1))},e),i?k.onload():n.parentNode.insertBefore(k,n)},a.yepnope.injectCss=function(a,c,d,e,g,i){var e=b.createElement("link"),j,c=i?h:c||f;e.href=a,e.rel="stylesheet",e.type="text/css";for(j in d)e.setAttribute(j,d[j]);g||(n.parentNode.insertBefore(e,n),m(c,0))}}(this,document),Modernizr.load=function(){yepnope.apply(window,[].slice.call(arguments,0))};
+(function($, undefined) {
+	"use strict";
 
+	var sign		= function(number) {
+						return number < 0 ? -1 : 1;
+					},
+		scl			= function(number, fromMin, fromMax, toMin, toMax) {
+						return ((number - fromMin) * (toMax - toMin) / (fromMax - fromMin)) + toMin;
+					},
+		wheelEvents	= ('onwheel' in document) ? 'wheel' : 'mousewheel',	// FF
+		getWheel	= function(event) {
+						if ('deltaY' in event.originalEvent) {
+							return 0 - event.originalEvent.deltaY;
+						} else if ('wheelDelta' in event.originalEvent) { 
+							return event.originalEvent.wheelDelta;	// IE
+						}
+					};
 
-/*!     
-        jquery.responsiveGallery.js
-        v 1.0
-        David
-        http://www.CodingSerf.com
-*/
+	$.widget("vanderlee.coverflow", {
+		options: {
+			animateComplete:	undefined,
+			animateStart:		undefined,
+			animateStep:		undefined,
+			density:			1,
+			duration:			'normal',
+			easing:				undefined,
+			enableKeyboard:		'both',			// true, false, 'both', 'focus', 'hover', 'none'
+			enableClick:		true,
+			enableWheel:		true,
+			index:				0,
+			innerAngle:			-75,
+			innerCss:			undefined,
+			innerOffset:		100 / 3,
+			innerScale:			0.75,
+			outerAngle:			-30,
+			outerCss:			undefined,
+			outerScale:			0.25,
+			selectedCss:		undefined,
+			visible:			'density',		// 'density', 'all', NNN (exact)
+			width:				undefined,
 
-;(function($){
-    $.fn.responsiveGallery = function(option){
-		var opts = $.extend({}, $.fn.responsiveGallery.defaults, option), //配置选项
-			$rgWrapper = this,
-			$rgItems = $rgWrapper.find('li'), //.responsiveGallery-item
-			rgItemsLength = $rgItems.length,
-			support3d = Modernizr.csstransforms3d,
-			support2d = Modernizr.csstransforms,
-			rgCurrentIndex = 0;
-			rgShowCount = 5,
-			rgTansCSS = [],
-			animatDuration = opts.animatDuration,
-			isAnimating = false,
-			touchX = 0;
+			change:				undefined,		// Whenever index is changed
+			confirm:			undefined,		// Whenever clicking on the current item
+			select:				undefined		// Whenever index is set (also on init)
+		},
 
-		function getTransform3dCSS(tx,ty,ry,zIndex,opacity,visibility){
-			return {
-				'-webkit-transform'	: 'translateX('+tx+') translateZ('+ty+'px) rotateY('+ry+'deg)',
-				'-moz-transform'	: 'translateX('+tx+') translateZ('+ty+'px) rotateY('+ry+'deg)',
-				'-o-transform'		: 'translateX('+tx+') translateZ('+ty+'px) rotateY('+ry+'deg)',
-				'-ms-transform'		: 'translateX('+tx+') translateZ('+ty+'px) rotateY('+ry+'deg)',
-				'transform'			: 'translateX('+tx+') translateZ('+ty+'px) rotateY('+ry+'deg)',
-				'z-index'			: zIndex,
-				'opacity'			: opacity,
-				'visibility'		: visibility
-			};
-		}
+		_window_handler_resize:		null,
+		_window_handler_keydown:	null,
 
-		function getTransform2dCSS(t,s,originX,originY,opacity,visibility){
-			return {
-				'-webkit-transform'	: 'translate('+t+') scale('+s+')',
-				'-moz-transform'	: 'translate('+t+') scale('+s+')',
-				'-o-transform'		: 'translate('+t+') scale('+s+')',
-				'-ms-transform'		: 'translate('+t+') scale('+s+')',
-				'transform'			: 'translate('+t+') scale('+s+')',
+		_create: function() {
+			var that = this,
+				covers = that._getCovers(),
+				images = covers.filter('img').add('img', covers).filter(function() {
+					return !(this.complete || this.height > 0);
+				}),
+				maxHeight = Math.max.apply(null, covers.map(function(){
+					return $(this).height();
+				}).get()),
+				height;
 
-				'-webkit-transform-origin'	: originX+' '+originY,
-				'-moz-transform-origin'		: originX+' '+originY,
-				'-ms-transform-origin'		: originX+' '+originY,
-				'-o-transform-origin'		: originX+' '+originY,
-				'transform-origin'			: originX+' '+originY,
+			// Internal event prefix
+			that.widgetEventPrefix	= 'vanderlee-coverflow';
 
-				'opacity'			: opacity,
-				'visibility'		: visibility
-			};
-		}
-
-		function getTransitionCSS(time,ease){
-			return {
-				'-webkit-transition': 'all '+time+'s '+ease,
-				'-moz-transition': 'all '+time+'s '+ease,
-				'-ms-transition': 'all '+time+'s '+ease,
-				'-o-transition': 'all '+time+'s '+ease,
-				'transition': 'all '+time+'s '+ease,
-			}
-		}
-
-		function getTransform7CSS(){
-			var cssArray;
-
-			if(support3d){
-				cssArray = [
-					getTransform3dCSS('-100%',	-400,	40,		-1,	0,	'hidden'),
-					getTransform3dCSS('0',		-350,	45,		-1,	1,	'visible'),
-
-					getTransform3dCSS('100%', 	-300, 	45,		0,	1,	'visible'),
-					getTransform3dCSS('200%', 	-200, 	40,		1,	1,	'visible'),
-					getTransform3dCSS('300%', 	0, 		0,		2,	1,	'visible'),
-					getTransform3dCSS('400%', 	-200, 	-40,	1,	1,	'visible'),
-					getTransform3dCSS('500%', 	-300, 	-45,	0,	1,	'visible'),
-
-					getTransform3dCSS('600%', 	-350, 	-45,	-1,	1,	'visible'),
-					getTransform3dCSS('700%', 	-400, 	-40,	-1,	0,	'hidden')
-				];
-			} else if(support2d){
-				cssArray = [
-					getTransform2dCSS('-100%',	0.6,	'100%',		'50%',	0,	'hidden'),
-					getTransform2dCSS('0',		0.6,	'100%',		'50%',	1,	'visible'),
-
-					getTransform2dCSS('100%', 	0.7,	'100%',		'50%',	1,	'visible'),
-					getTransform2dCSS('200%', 	0.8,	'50%',		'50%',	1,	'visible'),
-					getTransform2dCSS('300%', 	1,		'50%',		'50%',	1,	'visible'),
-					getTransform2dCSS('400%', 	0.8,	'50%',		'50%',	1,	'visible'),
-					getTransform2dCSS('500%', 	0.7,	'0%',		'50%',	1,	'visible'),
-
-					getTransform2dCSS('600%', 	0.6,	'0%',		'50%',	1,	'visible'),
-					getTransform2dCSS('700%', 	0.6,	'0%',		'50%',	0,	'hidden')
-				];
-			}
-
-			return cssArray;
-		}
-
-		function getTransform5CSS(){
-			var cssArray;
-
-			if(support3d){
-				cssArray = [
-					getTransform3dCSS('-100%',	-400, 	45,		-1,	0,	'hidden'),
-
-					getTransform3dCSS('0', 		-300, 	45,		0,	1,	'visible'),
-					getTransform3dCSS('100%', 	-200, 	45,		1,	1,	'visible'),
-					getTransform3dCSS('200%', 	0, 		0,		2,	1,	'visible'),
-					getTransform3dCSS('300%', 	-200, 	-45,	1,	1,	'visible'),
-					getTransform3dCSS('400%', 	-300, 	-45,	0,	1,	'visible'),
-
-					getTransform3dCSS('500%', 	-400, 	-45,	-1,	0,	'hidden')
-				];
-			} else if(support2d){
-				cssArray = [
-					getTransform2dCSS('-100%',	0.6,	'100%',		'50%',	0,	'hidden'),
-
-					getTransform2dCSS('0', 		0.7,	'100%',		'50%',	1,	'visible'),
-					getTransform2dCSS('100%', 	0.8,	'50%',		'50%',	1,	'visible'),
-					getTransform2dCSS('200%', 	1,		'50%',		'50%',	1,	'visible'),
-					getTransform2dCSS('300%', 	0.8,	'50%',		'50%',	1,	'visible'),
-					getTransform2dCSS('400%', 	0.7,	'0%',		'50%',	1,	'visible'),
-
-					getTransform2dCSS('500%', 	0.6,	'0%',		'50%',	0,	'hidden')
-				];
-			}
-
-			return cssArray;
-		}
-
-		function getTransform3CSS(){
-			var cssArray;
-
-			if(support3d){
-				cssArray = [
-					getTransform3dCSS('-100%',	-400, 	45,		0,	0,	'hidden'),
-
-					getTransform3dCSS('0', 		-300, 	45,		1,	1,	'visible'),
-					getTransform3dCSS('100%', 	0, 		0,		2,	1,	'visible'),
-					getTransform3dCSS('200%', 	-300, 	-45,	1,	1,	'visible'),
-
-					getTransform3dCSS('300%', 	-400, 	-45,	0,	0,	'hidden')
-				];
-			} else if(support2d){
-				cssArray = [
-					getTransform2dCSS('-100%',	0.65,	'100%',		'50%',	0,	'hidden'),
-
-					getTransform2dCSS('0', 		0.8,	'50%',		'50%',	1,	'visible'),
-					getTransform2dCSS('100%', 	1,		'50%',		'50%',	1,	'visible'),
-					getTransform2dCSS('200%', 	0.8,	'50%',		'50%',	1,	'visible'),
-
-					getTransform2dCSS('300%', 	0.65,	'0%',		'50%',	0,	'hidden')
-				];
-			}
-
-			return cssArray;
-		}
-
-		function getTransform1CSS(){
-			var cssArray;
-
-			if(support3d){
-				cssArray = [
-					getTransform3dCSS('-100%',	-300, 	45,		0,	0,	'hidden'),
-
-					getTransform3dCSS('0%', 	0, 		0,		2,	1,	'visible'),
-
-					getTransform3dCSS('100%', 	-300, 	-45,	0,	0,	'hidden')
-				];
-			} else if(support2d){
-				cssArray = [
-					getTransform2dCSS('-100%',	0.65,	'100%',		'50%',	0,	'hidden'),
-
-					getTransform2dCSS('0', 	1,		'50%',		'50%',	1,	'visible'),
-
-					getTransform2dCSS('100%', 	0.65,	'0%',		'50%',	0,	'hidden')
-				];
-			}
-
-			return cssArray;
-		}
-		function setSectionItems(fun){
-			var $items = [];
-
-			$items[0] = $rgItems.eq(rgCurrentIndex-1);
-			fun(0,$items[0]);
-			for (var i=1;i<=rgShowCount+1;i++) {
-				var next = rgCurrentIndex+i-1;
-				if(next>=rgItemsLength){
-					next = next - rgItemsLength;
+			that.hovering			= false;
+			that.pagesize			= 1;
+			that.currentIndex		= that.options.index;
+			
+			// Fix height
+			that.element.height(maxHeight);
+			images.on(function() {
+				height = that._getCovers().height();
+				if (height > maxHeight) {
+					maxHeight = height;
+					that.element.height(maxHeight);
 				}
-				$items[i] = $rgItems.eq(next);
-				fun(i,$items[i]);
-			}
-		}
-
-		function moveGallery(direction){
-			isAnimating = true;
-
-			rgCurrentIndex = direction + rgCurrentIndex;
-			if(rgCurrentIndex < 0){
-				rgCurrentIndex = rgItemsLength - 1;
-			}
-			if(rgCurrentIndex >= rgItemsLength){
-				rgCurrentIndex = 0;
-			}
-			setSectionItems(function(i,$item){
-				$item.css(rgTansCSS[i]);
 			});
 
-			setTimeout(function(){
-				isAnimating = false;
-			},animatDuration); //防止连击
+			// Hide all covers and set position to absolute
+			covers.hide();
+
+			// Add tabindex and autofocus if needed.
+			if (this.element.not(':tabbable')) {
+				this.element.attr('tabIndex', -1);
+				if (this.element.attr('autofocus')) {
+					this.element.focus();
+				}
+			}
+
+			// Enable click-jump
+			that.element.on('mousedown tap click', '> *', function(event) {
+				if (that.options.enableClick) {
+					var index = that._getCovers().index(this);
+					if (index === that.currentIndex) {
+						that._callback('confirm', event);
+					} else {
+						that._setIndex(index, true);
+					}
+				}
+			});
+
+			// Mousewheel
+			that.element.on(wheelEvents, function(event) {
+				if (that.options.enableWheel) {
+					var delta = getWheel(event) > 0 ? 1 : -1;
+
+					event.preventDefault();
+					that._setIndex(that.options.index - delta, true);
+				}
+			});
+
+			// Swipe
+			if ($.isFunction(that.element.swipe)) {
+				that.element.swipe({
+					allowPageScroll: "vertical",
+					swipe: function(event, direction, distance, duration, fingerCount) {
+						var count = Math.round((direction==="left"? 1 : (direction==="right"? -1 : 0 )) * 1.25 * that.pagesize * distance / that.element.width());
+						that._setIndex(that.options.index + count, true);
+					}
+				});
+			}
+
+			// Keyboard
+//			that.element.hover(
+//				function() { that.hovering = true; }
+//			,	function() { that.hovering = false; }
+//			);
+
+			// Refresh on resize
+			that._window_handler_resize = function() {
+				that.refresh();
+			};
+			$(window).on('resize', that._window_handler_resize);
+
+			that._window_handler_keydown = function(event) {
+				if (($.inArray(that.options.enableKeyboard, [true, 'both', 'focus']) >= 0 && that.element.is(':focus'))
+				 || ($.inArray(that.options.enableKeyboard, [true, 'both', 'hover']) >= 0 >= 0 && that.element.is(':hover'))) {
+					switch (event.which) {
+						case 36:	// home
+							event.preventDefault();
+							that._setIndex(0, true);
+							break;
+
+						case 35:	// end
+							event.preventDefault();
+							that._setIndex(that._getCovers().length - 1, true);
+							break;
+
+						case 38:	// up
+						case 37:	// left
+							event.preventDefault();
+							that._setIndex(that.options.index - 1, true);
+							break;
+
+						case 40:	// down
+						case 39:	// right
+							event.preventDefault();
+							that._setIndex(that.options.index + 1, true);
+							break;
+
+						case 33:	// page up (towards home)
+							event.preventDefault();
+							that._setIndex(that.options.index - that.pagesize, true);
+							break;
+
+						case 34:	// page down (towards end)
+							event.preventDefault();
+							that._setIndex(that.options.index + that.pagesize, true);
+							break;
+					}
+				}
+			};
+			$(window).on('keydown', that._window_handler_keydown);
+
+			// Initialize
+			that._setIndex(that.options.index, false, true);
+
+			return that;
+		},
+
+
+		/**
+		 * Destroy this object
+		 * @returns {undefined}
+		 */
+		_destroy: function() {
+			$(window).off('resize', this._window_handler_resize);
+			$(window).off('keydown', this._window_handler_keydown);
+			this.element.height('');
+		},
+
+		/**
+		 * Returns the currently selected cover
+		 * @returns {jQuery} jQuery object
+		 */
+		cover: function() {
+			return $(this._getCovers()[this.options.index]);
+		},
+
+		/**
+		 *
+		 * @returns {unresolved}
+		 */
+		_getCovers: function() {
+			return $('> *', this.element);
+		},
+
+		_setIndex: function(index, animate, initial) {
+			var that = this,
+				covers = that._getCovers();
+
+			index = Math.max(0, Math.min(index, covers.length - 1));
+
+			if (index !== that.options.index) {
+				// Fix reflections
+				covers.css('position', 'absolute');
+				this._frame(that.options.index);						
+
+				if (animate === true || that.options.duration === 0) {
+					that.options.index	= Math.round(index);
+					
+					var duration	= typeof that.options.duration === "number"
+									? that.options.duration
+									: jQuery.fx.speeds[that.options.duration] || jQuery.fx.speeds._default;
+					
+					this.refresh(duration, that.options.index);
+				} else {
+					that.options.index = Math.round(index);
+					that.refresh(0);
+				}
+			} else if (initial === true) {
+				that.refresh();
+				that._callback('select');
+			}
+		},
+
+		_callback: function(callback, event) {
+			this._trigger(callback, event, [this._getCovers().get(this.currentIndex), this.currentIndex]);
+		},
+
+		index: function(index) {
+			if (index === undefined) {
+				return this.options.index;
+			}
+
+			while (index < 0) {
+				index += this._getCovers().length;
+			}
+
+			this._setIndex(index, true);
+		},
+		
+		_frame: function(frame) {
+			frame = frame.toFixed(6);		
+							
+			var that		= this,
+				covers		= that._getCovers(),
+				count		= covers.length,
+				parentWidth	= that.element.innerWidth(),			
+				coverWidth	= that.options.width || covers.eq(this.options.index).show().get(0).offsetWidth,
+				visible		= that.options.visible === 'density'	? Math.round(parentWidth * that.options.density / coverWidth)
+							: $.isNumeric(that.options.visible)		? that.options.visible
+							: count,
+				parentLeft	= that.element.position().left - ((1 - that.options.outerScale) * coverWidth * 0.5),
+				space		= (parentWidth - (that.options.outerScale * coverWidth)) * 0.5;
+		
+			that.pagesize	= visible;
+			
+			covers.removeClass('current').each(function(index, cover) {
+				var $cover		= $(cover),
+					position	= index - frame,
+					offset		= Math.min(Math.max(-1., position / visible), 1),
+					isMiddle	= position == 0,
+					zIndex		= count - Math.abs(Math.round(position)),
+					isVisible	= Math.abs(position) <= visible,
+					sin			= Math.sin(offset * Math.PI * 0.5),
+					cos			= Math.cos(offset * Math.PI * 0.5),
+					left		= sign(sin) * scl(Math.abs(sin), 0, 1, that.options.innerOffset * that.options.density, space),
+					scale		= isVisible ? scl(Math.abs(cos), 1, 0, that.options.innerScale, that.options.outerScale) : 0,
+					angle		= sign(sin) * scl(Math.abs(sin), 0, 1, that.options.innerAngle, that.options.outerAngle),
+					css			= isMiddle ? that.options.selectedCss || {}
+								: ( $.interpolate && that.options.outerCss && !$.isEmptyObject(that.options.outerCss) ? (
+									isVisible ? $.interpolate(that.options.innerCss || {}, that.options.outerCss, Math.abs(sin))
+											  : that.options.outerCss
+									) : {}
+								),
+					transform;
+							
+				// bad behaviour for being in the middle
+				if (Math.abs(position) < 1) {
+					angle	= 0 - (0 - angle) * Math.abs(position);
+					scale	= 1 - (1 - scale) * Math.abs(position);
+					left	= 0 - (0 - left) * Math.abs(position);
+				}
+				
+				//@todo Test CSS for middle behaviour (or does $.interpolate handle it?)
+
+				transform = 'scale(' + scale + ',' + scale + ') perspective(' + (parentWidth * 0.5) + 'px) rotateY(' + angle + 'deg)';
+				
+				$cover[isMiddle ? 'addClass' : 'removeClass']('current');
+				$cover[isVisible ? 'show' : 'hide']();				
+						
+				$cover.css($.extend(css, {
+					'left':					parentLeft + space + left,
+					'z-index':				zIndex,
+					'-webkit-transform':	transform,
+					'-ms-transform':		transform,
+					'transform':			transform
+				}));
+				
+				that._trigger('animateStep', null, [cover, offset, isVisible, isMiddle, sin, cos]);
+				
+				if (frame == that.options.index) {
+					that._trigger('animateComplete', null, [cover, offset, isVisible, isMiddle, sin, cos]);
+				}
+			});
+		},
+
+		refresh: function(duration, index) {	
+			var that = this,
+				previous = that.currentIndex,
+				covers = that._getCovers(),
+				covercount = covers.length,
+				triggered = false;
+		
+			that._callback('before');
+		
+			covers.css('position', 'absolute');
+			that.element.stop().animate({
+				'__coverflow_frame':	index || that.options.index
+			}, {
+				'easing':	that.options.easing,
+				'duration': duration || 0,
+				'step':		function(now, fx) {					
+					that._frame(now);					
+					
+					that.currentIndex = Math.max(0, Math.min(Math.round(now), covercount - 1));
+					if (previous !== that.currentIndex) {
+						previous = that.currentIndex;
+						that._callback('change');
+						if (that.currentIndex === that.options.index) {
+							triggered = true;
+						}
+					}
+				},
+				'complete':		function() {				
+					that.currentIndex	= that.options.index;
+					that._callback('after');
+					
+					if (!triggered) {
+						that._callback('change');
+					}
+					that._callback('select');
+				}
+			});
 		}
+	});
+}(jQuery));
 
-		opts.$btn_next.on('click',function(e){
-			!isAnimating && moveGallery(+1);
-			
-		});
-		opts.$btn_prev.on('click',function(e){
-			!isAnimating && moveGallery(-1);
-			
-		});
-
-		$rgWrapper.on('touchstart',function(e){
-			var touch = e.originalEvent.touches[0];
-			touchX = touch.pageX;
-		}).on('touchend touchcancel',function(e){
-			var touch = e.originalEvent.touches[0] || e.originalEvent.changedTouches[0],
-				touchGap = touch.pageX - touchX;
-
-			if(touchGap>5){ //swipe right
-				opts.$btn_prev.trigger('click');
-			}
-			if(touchGap<-5){ //swipe left
-				opts.$btn_next.trigger('click');
-			}
-
-		});
-		$(window).on('resize', function(e){
-			$rgItems.removeAttr('style'); //清除样式，否则在resize的时候不能正常取到下列元素的width
-
-			var wrapperWidth = $rgWrapper.width(),
-				itemWidth = $rgItems.eq(0).width();
-
-			rgShowCount = Math.round(wrapperWidth/itemWidth);
-			
-			if(rgShowCount === 1){ //显示1个
-				rgTansCSS = getTransform1CSS();
-			} else if(rgShowCount === 3){ //显示3个
-				rgTansCSS = getTransform3CSS();
-			} else if(rgShowCount === 5){ //显示5个
-				rgTansCSS = getTransform5CSS();
-			} else if(rgShowCount === 7){
-				rgTansCSS = getTransform7CSS();
-			} else {
-				return;
-			}
-
-			rgCurrentIndex = 0;
-			moveGallery(0);
-			setTimeout(function(){
-				$rgItems.css(getTransitionCSS(animatDuration/1000, 'ease-in-out'));
-			},10); //等初始位置设置好后再添加动画
-
-		}).trigger('resize');
-
-		//链式返回
-		return this;
-    };
-    // $.fn.responsiveGallery.defaults = {
-	// 	animatDuration: 400, //动画时长 单位 ms
-	// 	$btn_prev: $('.responsiveGallery-btn_prev'),
-	// 	$btn_next: $('.responsiveGallery-btn_next')
-    // };
-})(jQuery);
