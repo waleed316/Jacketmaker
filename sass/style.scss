@@ -256,13 +256,13 @@ body,html{
 }
 
 .social-footer-margin{
-    margin-top: $top-margin;
+    // margin-top: $top-margin;
     .social-icon{
         // margin-left: 15%;
         list-style: none;
         li{
             display: inline;
-            margin-right: 5%;
+            margin-right: 1%;
             .social-links{
                 i{  
                     font-size: 13px;
@@ -280,12 +280,12 @@ body,html{
 
     form{
         margin-top: $top-margin;
-        margin-left: 14%;
+        // margin-left: 14%;
         input{
             height: 34px;
             border-radius: 2.25rem;
             text-indent: 20px;
-            width: 80%;
+            width: 100%;
             border-color: $primary-color!important;
         
         }
@@ -591,7 +591,7 @@ body,html{
             background-color: transparent!important;
             color: $fonts-color;
             letter-spacing: 1px;
-            font-size: 36px;
+            font-size: 20px;
             border: 1px solid white!important;
             cursor: pointer;
             border-radius: 0!important;
@@ -612,7 +612,7 @@ body,html{
             background-color: transparent!important;
             color: $fonts-color;
             letter-spacing: 1px;
-            font-size: 36px;
+            font-size: 20px;
             border: 1px solid white!important;
             cursor: pointer;
             border-radius: 0!important;
@@ -818,6 +818,93 @@ body,html{
         letter-spacing: .5px;        
     }
 }
+
+.video-box{
+    position: absolute!important;
+    bottom: 0;
+    left: 10px;
+    h3{
+        font-size: 16px;
+        font-weight: bold;
+    }
+    p{
+        font-size: 14px;
+        letter-spacing: 0.5px;
+    }
+}
+
+
+.contact-form .form-control{
+    border-radius: 0!important;
+    border-color: $primary-color!important;
+    // box-shadow: 1px 0 2px black;
+    
+}
+
+.btn-submit{
+    background-color: white!important;
+    color: $primary-color;
+    border-color: $primary-color!important;
+    width: 100%;
+    border-radius: 0!important;
+    cursor: pointer;
+    &:hover{
+        background-color: $primary-color!important;
+        color: white;
+
+    }
+}
+
+.contact-head{
+    font-size: 20px;
+    color: $primary-color
+}
+
+
+.contact-list{
+    list-style: none;
+    li{
+        a{
+            color: black;
+            text-decoration: none;
+            &:hover{
+                color: $primary-color;
+            }
+        }
+    }
+}
+
+.address-list{
+    list-style: none;
+}
+
+
+.foter-head{
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.foter-list{
+    list-style: none;
+    li{
+        a{
+            text-decoration: none;
+            font-size: 12px!important;
+            color: black;
+            &:hover{
+                color: $primary-color;
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
 
 
 // Extra small devices (portrait phones, less than 576px)
@@ -1133,6 +1220,56 @@ body,html{
     .fourth-p{
         // text-align: center;
     }
+
+    .social-footer-margin{
+        // margin-top: $top-margin;
+        .social-icon{
+            // margin-left: 15%;
+            list-style: none;
+            li{
+                display: inline;
+                margin-right: 0%;
+                .social-links{
+                    i{  
+                        font-size: 12px;
+                        border: 1px solid $primary-color;
+                        padding: 5px 5px;
+                        border-radius: 2.25rem;
+                    }
+                    .fa-facebook{
+                        padding: 5px 7px;
+                    }
+                }
+            }
+        }
+    
+    
+        form{
+            margin-top: $top-margin;
+            // margin-left: 14%;
+            input{
+                height: 34px;
+                border-radius: 2.25rem;
+                text-indent: 20px;
+                width: 100%;
+                border-color: $primary-color!important;
+            
+            }
+        }
+    
+        .payment-option{
+            list-style: none;
+            li{
+                display: inline;
+                margin-right: 0px;
+                a{
+                    img{
+                        height: 40px;
+                    }
+                }
+            }
+        }
+    }
     
 }
 
@@ -1193,6 +1330,70 @@ body,html{
         height: 140px!important;
     }
     
+    .social-footer-margin{
+        // margin-top: $top-margin;
+        .social-icon{
+            // margin-left: 15%;
+            list-style: none;
+            li{
+                display: inline;
+                margin-right: 0%;
+                .social-links{
+                    i{  
+                        font-size: 13px;
+                        border: 1px solid $primary-color;
+                        padding: 11px 12px;
+                        border-radius: 2.25rem;
+                    }
+                    .fa-facebook{
+                        padding: 11px 13px;
+                    }
+                }
+            }
+        }
+    
+    
+        form{
+            margin-top: $top-margin;
+            // margin-left: 14%;
+            input{
+                height: 34px;
+                border-radius: 2.25rem;
+                text-indent: 20px;
+                width: 100%;
+                border-color: $primary-color!important;
+            
+            }
+        }
+    
+        .payment-option{
+            list-style: none;
+            li{
+                display: inline;
+                margin-right: 15px;
+                a{
+                    img{
+                        height: 50px;
+                    }
+                }
+            }
+        }
+    }
+    
+    
+    
+    .footer-last{
+        background-color: $primary-color;
+        margin-top: $top-margin;
+        h6{
+            color: $fonts-color;
+            padding: 20px 0;
+            margin-bottom: 0!important;
+            font-size: 12px;
+            letter-spacing: 0.9px;
+        }
+    }
+
 }
 
 // extra large screen

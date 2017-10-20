@@ -42,8 +42,10 @@
         <div class="box">
             <div class="row">
                 <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
-                    <h3>Main Heading</h3>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                    <div class="video-box">
+                        <h3>Main Heading</h3>
+                        <p>Lorem Ipsum i electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                    </div>
                 </div>
 
                 <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12">
@@ -121,22 +123,22 @@
 
         <div class="row">
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                <h6 class="sec-head mt-5 text-center">Men's jacket</h6>                
+                <h6 class="sec-head mt-5 text-center">Women's jacket</h6>                
                 <div id="preview">
                     <div id="preview-coverflow2">
-                        <img class="cover" src="images/bg1.jpg"/>
-                        <img class="cover" src="images/bg2.jpg"/>
-                        <img class="cover" src="images/bg3.jpg"/>
-                        <img class="cover" src="images/bg1.jpg"/>
-                        <img class="cover" src="images/bg1.jpg"/>
-                        <img class="cover" src="images/bg1.jpg"/>
-                        <img class="cover" src="images/bg1.jpg"/>
-                        <img class="cover" src="images/bg1.jpg"/>
-                        <img class="cover" src="images/bg1.jpg"/>
-                        <img class="cover" src="images/bg1.jpg"/>
-                        <img class="cover" src="images/bg1.jpg"/>
-                        <img class="cover" src="images/bg1.jpg"/>
-                        <img class="cover" src="images/bg1.jpg"/>
+                        <img class="cover" src="images/a1.jpg"/>
+                        <img class="cover" src="images/a2.jpg"/>
+                        <img class="cover" src="images/a3.jpg"/>
+                        <img class="cover" src="images/a4.jpg"/>
+                        <img class="cover" src="images/a5.jpg"/>
+                        <img class="cover" src="images/a6.jpg"/>
+                        <img class="cover" src="images/a1.jpg"/>
+                        <img class="cover" src="images/a1.jpg"/>
+                        <img class="cover" src="images/a1.jpg"/>
+                        <img class="cover" src="images/a1.jpg"/>
+                        <img class="cover" src="images/a1.jpg"/>
+                        <img class="cover" src="images/a1.jpg"/>
+                        <img class="cover" src="images/a1.jpg"/>
                     </div>
                 </div>
             </div>
@@ -144,22 +146,22 @@
 
         <div class="row">
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                <h6 class="sec-head mt-5 text-center">Men's jacket</h6>                
+                <h6 class="sec-head mt-5 text-center">Customize's jacket</h6>                
                 <div id="preview">
                     <div id="preview-coverflow3">
-                        <img class="cover" src="images/bg1.jpg"/>
-                        <img class="cover" src="images/bg2.jpg"/>
-                        <img class="cover" src="images/bg3.jpg"/>
-                        <img class="cover" src="images/bg1.jpg"/>
-                        <img class="cover" src="images/bg1.jpg"/>
-                        <img class="cover" src="images/bg1.jpg"/>
-                        <img class="cover" src="images/bg1.jpg"/>
-                        <img class="cover" src="images/bg1.jpg"/>
-                        <img class="cover" src="images/bg1.jpg"/>
-                        <img class="cover" src="images/bg1.jpg"/>
-                        <img class="cover" src="images/bg1.jpg"/>
-                        <img class="cover" src="images/bg1.jpg"/>
-                        <img class="cover" src="images/bg1.jpg"/>
+                        <img class="cover" src="images/w1.jpg"/>
+                        <img class="cover" src="images/w2.jpg"/>
+                        <img class="cover" src="images/w3.jpg"/>
+                        <img class="cover" src="images/w4.jpg"/>
+                        <img class="cover" src="images/w5.jpg"/>
+                        <img class="cover" src="images/w6.jpg"/>
+                        <img class="cover" src="images/w1.jpg"/>
+                        <img class="cover" src="images/w1.jpg"/>
+                        <img class="cover" src="images/w1.jpg"/>
+                        <img class="cover" src="images/w1.jpg"/>
+                        <img class="cover" src="images/w1.jpg"/>
+                        <img class="cover" src="images/w1.jpg"/>
+                        <img class="cover" src="images/w1.jpg"/>
                     </div>
                 </div>
             </div>

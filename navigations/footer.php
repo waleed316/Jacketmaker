@@ -1,7 +1,8 @@
+<hr>
 <div class="container-fluid">
     <div class="container">
         <div class="row margin-footer">
-            <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12">
+            <!-- <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12">
                 <div class="row">
                     <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4">
                         <div class="image-box">
@@ -30,6 +31,75 @@
             </div>
 
             <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12 text-center social-footer-margin">
+                <ul class="social-icon">
+                    <li><a href="#" class="social-links"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                    <li><a href="#" class="social-links"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                    <li><a href="#" class="social-links"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                    <li><a href="#" class="social-links"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a></li>
+                    <li><a href="#" class="social-links"><i class="fa fa-yahoo" aria-hidden="true"></i></a></li>                    
+                </ul>
+
+                <form action="">
+                    <div class="form-group">
+                        <input type="email" class="form-control" value="Email">
+                    </div>
+                </form>
+
+                <ul class="payment-option">
+                    <li><a href="#" class="cards"><img src="images/Visa-icon.png" alt=""></a></li>
+                    <li><a href="#" class="cards"><img src="images/master.png" alt=""></a></li>
+                    <li><a href="#" class="cards"><img src="images/paypal-512.png" alt=""></a></li>                    
+                </ul>
+            </div>             -->
+
+
+            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
+                <h1 class="foter-head">CUSTOMIZE</h1>
+                <ul class="foter-list">
+                    <li><a href="#">Custom Jackets</a></li>
+                    <li><a href="#">Custom Leather Jackets</a></li>
+                    <li><a href="#">Custom Varsity Jackets</a></li>
+                    <li><a href="#">Custom Trench Coats</a></li>
+                    <li><a href="#">Custom Denim Jackets</a></li>
+                    <li><a href="#">Custom Windbreaker Jackets</a></li>
+                    <li><a href="#">Custom Bomber Jackets</a></li>
+                    <li><a href="#">Custom Motorcycle Jackets</a></li>
+                    
+                    <li><a href="#">Custom Parka Jackets</a></li>
+                    <li><a href="#">Custom Bags</a></li>
+                    <li><a href="#">Custom Leather Bags</a></li>
+                </ul>
+            </div>
+
+            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
+                <h1 class="foter-head">MEN'S COLLECTION</h1>
+                <ul class="foter-list">
+                    <li><a href="#">Men's Leather Jackets</a></li>
+                    <li><a href="#">Men's Biker Jackets</a></li>
+                    <li><a href="#">Men's Cafe Racer</a></li>
+                    <li><a href="#">Men's Double Rider</a></li>
+                    <li><a href="#">Men's Bomber Jackets</a></li>
+                    <li><a href="#">Men's Leather Blazers</a></li>
+                    <li><a href="#">Men's Winter Jackets</a></li>
+                    <li><a href="#">Men's Windbreakers</a></li>
+                    
+                    <li><a href="#">Men's Fur & Shearling</a></li>
+                    <li><a href="#">Men's Trench & Winter Coats</a></li>
+                    <li><a href="#">Men's Fur & Shearling Coats</a></li>
+                </ul>
+            </div>
+
+            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
+                <h1 class="foter-head">WOMEN'S COLLECTION</h1>
+                <ul class="foter-list">
+                    <li><a href="#">Women's Leather Jackets</a></li>
+                    <li><a href="#">Women's Biker Jackets</a></li>
+                    <li><a href="#">Women's Cafe Racer</a></li>
+                    <li><a href="#">Women's Double Rider</a></li>
+                </ul>
+            </div>
+
+            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 social-footer-margin">
                 <ul class="social-icon">
                     <li><a href="#" class="social-links"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
                     <li><a href="#" class="social-links"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>

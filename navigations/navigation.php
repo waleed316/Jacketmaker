@@ -15,19 +15,19 @@
                     <a class="nav-link" href="index.php">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">About Us</a>
+                    <a class="nav-link" href="about.php">About Us</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="category.php">Men</a>
+                    <a class="nav-link" href="men.php">Men</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="category.php">Women</a>
+                    <a class="nav-link" href="women.php">Women</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="customjacket.php">Customize</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
+                    <a class="nav-link" href="contact.php">Contact</a>
                 </li>
                 </ul>
             </div>
