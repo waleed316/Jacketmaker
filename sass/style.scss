@@ -727,8 +727,111 @@ body,html{
 }
 
 
+
+
+
+
+// about styling
+
+.about-body{
+    height: 100vh;
+}
+
+.about-main{
+    height: 100%;
+    background-image: url('../images/a.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+// .parent{
+//     margin-top: 20%!important;
+//     h1,p{
+//         color: white;
+//     }
+// }
+
+.about-heading2{
+    color: white;
+}
+
+
+.second-div{
+    .second-head{
+        font-size: 12px;
+        font-weight: bold;
+        margin-bottom: 2px!important;
+    }
+    .second-p{
+        font-size: 13px;
+        letter-spacing: 0.5px;
+        color: grey
+    }
+}
+
+.third{
+    background-image: url('../images/b.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 230px;
+    .third-head{
+        color: white;
+        margin-top: 6%;
+        font-size: 50px;
+    }
+}
+
+
+.fourth{
+    .fourth-head{
+        font-size: 50px;
+        text-align: right;
+    }
+
+    .break,.break2{
+        min-height: 50px;
+        float: right;
+        border-right: solid 1px #313131;
+    }
+
+    .fourth-p{
+        font-size: 13px;
+        margin-top: 5px!important;
+    }
+}
+
+.fifth{
+    background-color: #f3f3f3;
+    .fifth-head{
+        letter-spacing: 1.5px;
+    }
+
+    .fifth-h{
+        font-size: 22px;
+        color: black;
+        letter-spacing: 1.5px;
+    }
+
+    .fifth-p{
+        font-size: 14px;
+        letter-spacing: .5px;        
+    }
+}
+
+
 // Extra small devices (portrait phones, less than 576px)
 @media (max-width: 575px) { 
+
+    .fourth-head{
+        font-size: 26px!important;
+        text-align: center!important;
+    }
+
+    .fourth-p{
+        text-align: center;
+    }
+
     .navbar-styling{
         button{
             margin-top: 5px;
@@ -858,6 +961,23 @@ body,html{
         margin-top: 10%;
     }
 
+    .parent{
+        margin-top: 8%!important;
+        h1,p{
+            color: white;
+        }
+    }
+
+    .parent2{
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        width: 50%;
+        .about-heading2{
+            font-size: 22px;
+        }
+    }
+
 }
 
 // Small devices (landscape phones, 576px and up)
@@ -892,6 +1012,31 @@ body,html{
             width: 98px;
         }
     }
+
+    .parent{
+        h1,p{
+            color: white;
+        }
+    }
+    .parent2{
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        width: 30%;
+        .about-heading2{
+            font-size: 22px;
+        }
+    }
+
+    .fourth-head{
+        font-size: 26px!important;
+        text-align: center!important;
+    }
+
+    .fourth-p{
+        text-align: center;
+    }
+
 }
 
 // Medium devices (tablets, 768px and up)
@@ -955,6 +1100,39 @@ body,html{
         }
     }
 
+    .parent{
+        width: 50%;
+        margin-top: 10%!important;
+        h1,p{
+            color: white;
+        }
+    }
+
+    .parent2{
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        width: 20%;
+        .about-heading2{
+            font-size: 22px;
+        }
+    }
+    
+    .fourth-head{
+        font-size: 26px!important;
+        text-align: right!important;
+    }
+
+    .break2{
+        height: 240px!important;
+    }
+
+    .break{
+        height: 80px;
+    }
+    .fourth-p{
+        // text-align: center;
+    }
     
 }
 
@@ -993,6 +1171,27 @@ body,html{
         }
     }
 
+    .parent{
+        width: 40%;
+        margin-top: 10%!important;
+        h1,p{
+            color: white;
+        }
+    }
+
+    .parent2{
+        position: absolute;
+        top: 60px;
+        right: 30px;
+        width: 20%;
+        .about-heading2{
+            font-size: 28px;
+        }
+    }
+
+    .break2{
+        height: 140px!important;
+    }
     
 }
 
@@ -1016,6 +1215,28 @@ body,html{
             display: inline-block;
             width: 160px;
         }
+    }
+
+    .parent{
+        width: 40%;
+        margin-top: 12%!important;
+        h1,p{
+            color: white;
+        }
+    }
+    
+    .parent2{
+        position: absolute;
+        top: 80px;
+        right: 30px;
+        width: 20%;
+        .about-heading2{
+            font-size: 28px;
+        }
+    }
+
+    .break2{
+        height: 120px!important;
     }
  
 }
