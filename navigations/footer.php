@@ -1,5 +1,5 @@
 <hr>
-<div class="container-fluid">
+<div class="container-fluid last">
     <div class="container">
         <div class="row margin-footer">
             <!-- <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12">
@@ -111,10 +111,11 @@
                 <form action="">
                     <div class="form-group">
                         <input type="email" class="form-control" value="Email">
+                        <button class="btn btn-subscribe">Send</button>
                     </div>
                 </form>
 
-                <ul class="payment-option">
+                <ul class="payment-option text-center">
                     <li><a href="#" class="cards"><img src="images/Visa-icon.png" alt=""></a></li>
                     <li><a href="#" class="cards"><img src="images/master.png" alt=""></a></li>
                     <li><a href="#" class="cards"><img src="images/paypal-512.png" alt=""></a></li>                    

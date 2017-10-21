@@ -279,15 +279,31 @@ body,html{
 
 
     form{
+        position: relative;
         margin-top: $top-margin;
         // margin-left: 14%;
         input{
             height: 34px;
-            border-radius: 2.25rem;
-            text-indent: 20px;
+            // border-radius: 2.25rem;
+            // text-indent: 20px;
             width: 100%;
             border-color: $primary-color!important;
+            border-radius: 0;
         
+        }
+        .btn-subscribe{
+            position: absolute;
+            top: 0;
+            right: 0px;
+            background-color: transparent;
+            border-left: 1px solid black;
+            height: 100%;
+            border-radius: 0;
+            cursor: pointer;
+            &:hover{
+                background-color: $primary-color;
+                color: white;
+            }
         }
     }
 
@@ -906,7 +922,6 @@ body,html{
 
 
 
-
 // Extra small devices (portrait phones, less than 576px)
 @media (max-width: 575px) { 
 
@@ -1438,6 +1453,12 @@ body,html{
 
     .break2{
         height: 120px!important;
+    }
+
+    .social-icon{
+        li{
+            margin-right: 4%!important;
+        }
     }
  
 }
