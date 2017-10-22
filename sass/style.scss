@@ -81,6 +81,7 @@ body,html{
 
     .btn-cart{
         background-color: transparent!important;
+        padding: 0.5rem 10px!important;
         &:focus{
             box-shadow: none;
         }
@@ -117,6 +118,30 @@ body,html{
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
+    h1,h4{
+        text-align: center;
+        font-weight: bold;
+        letter-spacing: 0.8px;
+    }
+    a{
+        color: $fonts-color;
+        border: 1px solid white;
+        padding: 20px;
+        font-weight: bold;
+        &:hover{
+            color: $primary-color;
+            text-decoration: none;
+        }
+    }
+}
+
+.pp-main-banner{
+    color: $fonts-color;
+    position: absolute!important;
+    bottom: 17%;
+    left: 50%;
+    width: 100%!important;
+    transform: translate(-50%,-17%);
     h1,h4{
         text-align: center;
         font-weight: bold;
@@ -666,6 +691,10 @@ body,html{
         border-radius: 0;
         width: 25%;
         cursor: pointer!important;
+        &:hover{
+            background-color: white!important;
+            color: $primary-color;
+        }      
     }
 }
 
@@ -914,12 +943,113 @@ body,html{
     }
 }
 
+// .pp-image{
+//     height: 600px;
+//     width: 100%;
+// }
 
+.pp-btn{
+    bottom: 0;
+}
 
+.hiw-head{
+    color: $primary-color;
+    font-size: 32px;
+}
 
+.circle{
+    // border: 1px solid $primary-color;
+    // border-radius: 100px;
+    .circle-text{
+        position: relative;
+        display: inline-block;
+        margin-bottom: 0 !important;
+        border: 2px solid $primary-color;
+        border-radius: 75px;
+        height: 150px;
+        width: 150px;
+        color: $primary-color;
+        span{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+    }
+}
 
+.p-process{
+    background-color: #f3f3f3;
+    padding-bottom: 35px;
+    .container-fluid{
+        border-bottom: 2px dashed;
+    }
+    .container{
+        border-right: 2px dashed;
+        margin-bottom: -35px!important;
+    }
+}
 
+.p-process-head{
+    color: $primary-color;
+    letter-spacing: 1.5px;
+}
 
+.p-list{
+    list-style: none;
+    li{
+        margin-bottom: 5%;
+        div{
+            vertical-align: middle;
+            display: inline-block;
+
+        }
+        span{
+            vertical-align: middle;
+            margin-left: 5%;
+            font-size: 26px;
+            color: $primary-color;
+        }
+    }
+}
+
+#Capa_1{
+    height: 50px;
+    fill: $primary-color;
+}
+
+.product-contact{
+    background-color: #f3f3f3!important;
+}
+
+.contact-form-head{
+    color: $primary-color;
+}
+
+.product-contact{
+    input{
+        border-color: $primary-color;
+        background-color: transparent;
+        &:focus{
+            background-color: transparent!important;
+            border-color: $primary-color;
+        }
+    }
+}
+
+.form-go-btn{
+    background-color: transparent!important;
+    width: 15%;
+    border-color: $primary-color!important;
+    color: $primary-color!important;
+    border-radius: 0!important;
+    cursor: pointer;
+    &:hover{
+        background-color: $primary-color!important;
+        border-color: white!important;
+        color: white!important;
+    }
+}
 
 
 // Extra small devices (portrait phones, less than 576px)
@@ -989,6 +1119,8 @@ body,html{
         }
     }
 
+    
+
     .breadcrumb{
         a,span{
             font-size: 10px;
@@ -1028,7 +1160,8 @@ body,html{
             font-size: 16px !important;
         }
         .btn-get{
-            width: 50%;            
+            width: 50%;      
+            
         }
     }
    
@@ -1081,6 +1214,7 @@ body,html{
     }
 
 }
+
 
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) and (max-width: 767px) { 
