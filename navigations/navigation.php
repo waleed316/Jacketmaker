@@ -14,8 +14,14 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="index.php">Home</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="about.php">About Us</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    About
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="about.php">About Us</a>
+                    <a class="dropdown-item" href="production.php">Our Process</a>
+                    </div>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="men.php">Men</a>
