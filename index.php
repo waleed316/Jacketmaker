@@ -101,27 +101,319 @@
         <div class="row">
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                 <h6 class="sec-head mt-5 text-center">Men's jacket</h6>                
-                <div id="preview">
-                    <div id="preview-coverflow1">
-                        <img class="cover" src="images/bg1.jpg"/>
-                        <img class="cover" src="images/bg2.jpg"/>
-                        <img class="cover" src="images/bg3.jpg"/>
-                        <img class="cover" src="images/bg1.jpg"/>
-                        <img class="cover" src="images/bg1.jpg"/>
-                        <img class="cover" src="images/bg1.jpg"/>
-                        <img class="cover" src="images/bg1.jpg"/>
-                        <img class="cover" src="images/bg1.jpg"/>
-                        <img class="cover" src="images/bg1.jpg"/>
-                        <img class="cover" src="images/bg1.jpg"/>
-                        <img class="cover" src="images/bg1.jpg"/>
-                        <img class="cover" src="images/bg1.jpg"/>
-                        <img class="cover" src="images/bg1.jpg"/>
+                
+                <div id="coverflow">
+                    <div class="covers">
+                        <ul>
+                            <li><div class="imgdiv">
+                                    <a href="#" target="_blank">
+                                        <img src="images/m1.jpg" alt="">
+                                    </a>
+                                </div>
+                                <div class="text">
+                                    
+                                </div>
+                            </li>
+                            <li><div class="imgdiv">
+                                    <a href="#" target="_blank">
+                                        <img src="images/m2.jpg" alt="">
+                                    </a>
+                                </div>
+                                <div class="text">
+                                    
+                                </div>
+                            </li>
+                            <li><div class="imgdiv">
+                                    <a href="#" target="_blank">
+                                        <img src="images/m3.jpg" alt="">
+                                    </a>
+                                </div>
+                                <div class="text">
+                                    
+                                </div>
+                            </li>
+                            <li><div class="imgdiv">
+                                    <a href="#" target="_blank">
+                                        <img src="images/m4.jpg" alt="">
+                                    </a>
+                                </div>
+                                <div class="text">
+                                    
+                                </div>
+                            </li>
+                            <li><div class="imgdiv">
+                                    <a href="#" target="_blank">
+                                        <img src="images/m5.jpg" alt="">
+                                    </a>
+                                </div>
+                                <div class="text">
+                                    
+                                </div>
+                            </li>
+                            <li><div class="imgdiv">
+                                    <a href="#" target="_blank">
+                                        <img src="images/m6.jpg" alt="">
+                                    </a>
+                                </div>
+                                <div class="text">
+                                    
+                                </div>
+                            </li>
+                            <li><div class="imgdiv">
+                                    <a href="#" target="_blank">
+                                        <img src="images/m7.jpg" alt="">
+                                    </a>
+                                </div>
+                                <div class="text">
+                                    
+                                </div>
+                            </li>
+                            <li><div class="imgdiv">
+                                    <a href="#" target="_blank">
+                                        <img src="images/m8.jpg" alt="">
+                                    </a>
+                                </div>
+                                <div class="text">
+                                    
+                                </div>
+                            </li>
+                            <li><div class="imgdiv">
+                                    <a href="" target="_blank">
+                                        <img src="images/m9.jpg" alt="">
+                                    </a>
+                                </div>
+                                <div class="text">
+                                    
+                                </div>
+                            </li>
+                            <li><div class="imgdiv">
+                                    <a href="#" target="_blank">
+                                        <img src="images/m10.jpg" alt="">
+                                    </a>
+                                </div>
+                                <div class="text">
+                                    
+                                </div>
+                            </li>
+                            </ul>
                     </div>
+                    <div class="Controller"></div>
                 </div>
+
             </div>
         </div>
 
         <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                <h6 class="sec-head mt-5 text-center">Women's jacket</h6>                
+                
+                <div id="coverflow" class="coberflow">
+                    <div class="covers">
+                        <ul>
+                            <li><div class="imgdiv">
+                                    <a href="#" target="_blank">
+                                        <img src="images/w1.jpg" alt="">
+                                    </a>
+                                </div>
+                                <div class="text">
+                                    
+                                </div>
+                            </li>
+                            <li><div class="imgdiv">
+                                    <a href="#" target="_blank">
+                                        <img src="images/w2.jpg" alt="">
+                                    </a>
+                                </div>
+                                <div class="text">
+                                    
+                                </div>
+                            </li>
+                            <li><div class="imgdiv">
+                                    <a href="#" target="_blank">
+                                        <img src="images/w3.jpg" alt="">
+                                    </a>
+                                </div>
+                                <div class="text">
+                                    
+                                </div>
+                            </li>
+                            <li><div class="imgdiv">
+                                    <a href="#" target="_blank">
+                                        <img src="images/w4.jpg" alt="">
+                                    </a>
+                                </div>
+                                <div class="text">
+                                    
+                                </div>
+                            </li>
+                            <li><div class="imgdiv">
+                                    <a href="#" target="_blank">
+                                        <img src="images/w1.jpg" alt="">
+                                    </a>
+                                </div>
+                                <div class="text">
+                                    
+                                </div>
+                            </li>
+                            <li><div class="imgdiv">
+                                    <a href="#" target="_blank">
+                                        <img src="images/w6.jpg" alt="">
+                                    </a>
+                                </div>
+                                <div class="text">
+                                    
+                                </div>
+                            </li>
+                            <li><div class="imgdiv">
+                                    <a href="#" target="_blank">
+                                        <img src="images/w2.jpg" alt="">
+                                    </a>
+                                </div>
+                                <div class="text">
+                                    
+                                </div>
+                            </li>
+                            <li><div class="imgdiv">
+                                    <a href="#" target="_blank">
+                                        <img src="images/w4.jpg" alt="">
+                                    </a>
+                                </div>
+                                <div class="text">
+                                    
+                                </div>
+                            </li>
+                            <li><div class="imgdiv">
+                                    <a href="" target="_blank">
+                                        <img src="images/w1.jpg" alt="">
+                                    </a>
+                                </div>
+                                <div class="text">
+                                    
+                                </div>
+                            </li>
+                            <li><div class="imgdiv">
+                                    <a href="#" target="_blank">
+                                        <img src="images/w6.jpg" alt="">
+                                    </a>
+                                </div>
+                                <div class="text">
+                                    
+                                </div>
+                            </li>
+                            </ul>
+                    </div>
+                    <div class="Controller"></div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                <h6 class="sec-head mt-5 text-center">Customize's jacket</h6>                
+                
+                <div id="coverflow" class="coberflow1">
+                    <div class="covers">
+                        <ul>
+                            <li><div class="imgdiv">
+                                    <a href="#" target="_blank">
+                                        <img src="images/w1.jpg" alt="">
+                                    </a>
+                                </div>
+                                <div class="text">
+                                    
+                                </div>
+                            </li>
+                            <li><div class="imgdiv">
+                                    <a href="#" target="_blank">
+                                        <img src="images/w2.jpg" alt="">
+                                    </a>
+                                </div>
+                                <div class="text">
+                                    
+                                </div>
+                            </li>
+                            <li><div class="imgdiv">
+                                    <a href="#" target="_blank">
+                                        <img src="images/w3.jpg" alt="">
+                                    </a>
+                                </div>
+                                <div class="text">
+                                    
+                                </div>
+                            </li>
+                            <li><div class="imgdiv">
+                                    <a href="#" target="_blank">
+                                        <img src="images/w4.jpg" alt="">
+                                    </a>
+                                </div>
+                                <div class="text">
+                                    
+                                </div>
+                            </li>
+                            <li><div class="imgdiv">
+                                    <a href="#" target="_blank">
+                                        <img src="images/w1.jpg" alt="">
+                                    </a>
+                                </div>
+                                <div class="text">
+                                    
+                                </div>
+                            </li>
+                            <li><div class="imgdiv">
+                                    <a href="#" target="_blank">
+                                        <img src="images/w6.jpg" alt="">
+                                    </a>
+                                </div>
+                                <div class="text">
+                                    
+                                </div>
+                            </li>
+                            <li><div class="imgdiv">
+                                    <a href="#" target="_blank">
+                                        <img src="images/w2.jpg" alt="">
+                                    </a>
+                                </div>
+                                <div class="text">
+                                    
+                                </div>
+                            </li>
+                            <li><div class="imgdiv">
+                                    <a href="#" target="_blank">
+                                        <img src="images/w4.jpg" alt="">
+                                    </a>
+                                </div>
+                                <div class="text">
+                                    
+                                </div>
+                            </li>
+                            <li><div class="imgdiv">
+                                    <a href="" target="_blank">
+                                        <img src="images/w1.jpg" alt="">
+                                    </a>
+                                </div>
+                                <div class="text">
+                                    
+                                </div>
+                            </li>
+                            <li><div class="imgdiv">
+                                    <a href="#" target="_blank">
+                                        <img src="images/w6.jpg" alt="">
+                                    </a>
+                                </div>
+                                <div class="text">
+                                    
+                                </div>
+                            </li>
+                            </ul>
+                    </div>
+                    <div class="Controller"></div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- <div class="row">
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                 <h6 class="sec-head mt-5 text-center">Women's jacket</h6>                
                 <div id="preview">
@@ -165,7 +457,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>  
 
     <!-- men's Leather Jacket -->
@@ -240,98 +532,103 @@
 
     <?php require './navigations/footer.php' ?>  
     <script>
-        $(function() {
-            // if ($.fn.reflect) {
-            //     $('#preview-coverflow1 .cover').reflect();	// only possible in very specific situations
-            // }
+        // $(function() {
+        //     // if ($.fn.reflect) {
+        //     //     $('#preview-coverflow1 .cover').reflect();	// only possible in very specific situations
+        //     // }
 
-            $('#preview-coverflow1').coverflow({
-                index:			6,
-                density:		2,
-                innerOffset:	50,
-                innerScale:		.7,
-                animateStep:	function(event, cover, offset, isVisible, isMiddle, sin, cos) {
-                    if (isVisible) {
-                        if (isMiddle) {
-                            $(cover).css({
-                                'filter':			'none',
-                                '-webkit-filter':	'none'
-                            });
-                        } else {
-                            var brightness	= 1 + Math.abs(sin),
-                                contrast	= 1 - Math.abs(sin),
-                                filter		= 'contrast('+contrast+') brightness('+brightness+')';
-                            $(cover).css({
-                                'filter':			filter,
-                                '-webkit-filter':	filter
-                            });
-                        }
-                    }
-                }
-            });
-        });
+        //     $('#preview-coverflow1').coverflow({
+        //         index:			6,
+        //         density:		2,
+        //         innerOffset:	50,
+        //         innerScale:		.7,
+        //         animateStep:	function(event, cover, offset, isVisible, isMiddle, sin, cos) {
+        //             if (isVisible) {
+        //                 if (isMiddle) {
+        //                     $(cover).css({
+        //                         'filter':			'none',
+        //                         '-webkit-filter':	'none'
+        //                     });
+        //                 } else {
+        //                     var brightness	= 1 + Math.abs(sin),
+        //                         contrast	= 1 - Math.abs(sin),
+        //                         filter		= 'contrast('+contrast+') brightness('+brightness+')';
+        //                     $(cover).css({
+        //                         'filter':			filter,
+        //                         '-webkit-filter':	filter
+        //                     });
+        //                 }
+        //             }
+        //         }
+        //     });
+        // });
 
-        $(function() {
-            // if ($.fn.reflect) {
-            //     $('#preview-coverflow1 .cover').reflect();	// only possible in very specific situations
-            // }
+        // $(function() {
+        //     // if ($.fn.reflect) {
+        //     //     $('#preview-coverflow1 .cover').reflect();	// only possible in very specific situations
+        //     // }
 
-            $('#preview-coverflow2').coverflow({
-                index:			6,
-                density:		2,
-                innerOffset:	50,
-                innerScale:		.7,
-                animateStep:	function(event, cover, offset, isVisible, isMiddle, sin, cos) {
-                    if (isVisible) {
-                        if (isMiddle) {
-                            $(cover).css({
-                                'filter':			'none',
-                                '-webkit-filter':	'none'
-                            });
-                        } else {
-                            var brightness	= 1 + Math.abs(sin),
-                                contrast	= 1 - Math.abs(sin),
-                                filter		= 'contrast('+contrast+') brightness('+brightness+')';
-                            $(cover).css({
-                                'filter':			filter,
-                                '-webkit-filter':	filter
-                            });
-                        }
-                    }
-                }
-            });
-        });
+        //     $('#preview-coverflow2').coverflow({
+        //         index:			6,
+        //         density:		2,
+        //         innerOffset:	50,
+        //         innerScale:		.7,
+        //         animateStep:	function(event, cover, offset, isVisible, isMiddle, sin, cos) {
+        //             if (isVisible) {
+        //                 if (isMiddle) {
+        //                     $(cover).css({
+        //                         'filter':			'none',
+        //                         '-webkit-filter':	'none'
+        //                     });
+        //                 } else {
+        //                     var brightness	= 1 + Math.abs(sin),
+        //                         contrast	= 1 - Math.abs(sin),
+        //                         filter		= 'contrast('+contrast+') brightness('+brightness+')';
+        //                     $(cover).css({
+        //                         'filter':			filter,
+        //                         '-webkit-filter':	filter
+        //                     });
+        //                 }
+        //             }
+        //         }
+        //     });
+        // });
 
-        $(function() {
-            // if ($.fn.reflect) {
-            //     $('#preview-coverflow1 .cover').reflect();	// only possible in very specific situations
-            // }
+        // $(function() {
+        //     // if ($.fn.reflect) {
+        //     //     $('#preview-coverflow1 .cover').reflect();	// only possible in very specific situations
+        //     // }
 
-            $('#preview-coverflow3').coverflow({
-                index:			6,
-                density:		2,
-                innerOffset:	50,
-                innerScale:		.7,
-                animateStep:	function(event, cover, offset, isVisible, isMiddle, sin, cos) {
-                    if (isVisible) {
-                        if (isMiddle) {
-                            $(cover).css({
-                                'filter':			'none',
-                                '-webkit-filter':	'none'
-                            });
-                        } else {
-                            var brightness	= 1 + Math.abs(sin),
-                                contrast	= 1 - Math.abs(sin),
-                                filter		= 'contrast('+contrast+') brightness('+brightness+')';
-                            $(cover).css({
-                                'filter':			filter,
-                                '-webkit-filter':	filter
-                            });
-                        }
-                    }
-                }
-            });
-        });
+        //     $('#preview-coverflow3').coverflow({
+        //         index:			6,
+        //         density:		2,
+        //         innerOffset:	50,
+        //         innerScale:		.7,
+        //         animateStep:	function(event, cover, offset, isVisible, isMiddle, sin, cos) {
+        //             if (isVisible) {
+        //                 if (isMiddle) {
+        //                     $(cover).css({
+        //                         'filter':			'none',
+        //                         '-webkit-filter':	'none'
+        //                     });
+        //                 } else {
+        //                     var brightness	= 1 + Math.abs(sin),
+        //                         contrast	= 1 - Math.abs(sin),
+        //                         filter		= 'contrast('+contrast+') brightness('+brightness+')';
+        //                     $(cover).css({
+        //                         'filter':			filter,
+        //                         '-webkit-filter':	filter
+        //                     });
+        //                 }
+        //             }
+        //         }
+        //     });
+        // });
+    </script>
+    <script> 
+        $coverflow1 = $("#coverflow").coverflow();
+        $coverflow2 = $(".coberflow").coverflow(); 
+        $coverflow2 = $(".coberflow1").coverflow();         
     </script>
   </body>
 </html>
