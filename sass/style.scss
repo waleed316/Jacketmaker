@@ -1772,8 +1772,9 @@ li:nth-child(5) .imgdiv,
 #next{
     position: absolute;
     right: 0;
-}
-.Preloader {
+} 
+.Preloader { 
+    display: none!important;
 	position: absolute;
 	width: 30px;
 	height: 30px;
@@ -1791,7 +1792,7 @@ li:nth-child(5) .imgdiv,
 	transition: transform 3s ease-in-out,
 		opacity 3s ease-in-out;
 }
-.modified { opacity: 1; -webkit-transform: scale(0); transform: scale(0); }
+.modified { display: none; opacity: 1; -webkit-transform: scale(0); transform: scale(0); }
 
 // end coverflow
 
