@@ -1810,9 +1810,10 @@ li:nth-child(5) .imgdiv,
 .notransition {
   -webkit-transition: none !important;
   transition: none !important;
+  display: block !important;
 }
 
-/* line 1736, ../sass/style.scss */
+/* line 1737, ../sass/style.scss */
 #coverflow .imgdiv a,
 #coverflow .text {
   cursor: pointer;
@@ -1821,18 +1822,18 @@ li:nth-child(5) .imgdiv,
   cursor: grab;
 }
 
-/* line 1744, ../sass/style.scss */
+/* line 1745, ../sass/style.scss */
 #coverflow .Preloader {
   /*none - autoplay:false ; block - autoplay:true*/
-  display: none;
+  display: block !important;
 }
 
-/* line 1749, ../sass/style.scss */
+/* line 1750, ../sass/style.scss */
 #coverflow .Lightbox {
   display: none;
 }
 
-/* line 1753, ../sass/style.scss */
+/* line 1754, ../sass/style.scss */
 .Controller {
   display: none;
   z-index: 111111111111;
@@ -1843,13 +1844,13 @@ li:nth-child(5) .imgdiv,
   top: 30%;
 }
 
-/* line 1761, ../sass/style.scss */
+/* line 1762, ../sass/style.scss */
 #relativediv {
   position: relative;
   width: 100%;
 }
 
-/* line 1762, ../sass/style.scss */
+/* line 1763, ../sass/style.scss */
 .Controller img {
   margin-right: 3px;
   position: relative;
@@ -1857,12 +1858,12 @@ li:nth-child(5) .imgdiv,
   cursor: pointer;
 }
 
-/* line 1763, ../sass/style.scss */
+/* line 1764, ../sass/style.scss */
 .Controller img:hover {
   opacity: 1;
 }
 
-/* line 1764, ../sass/style.scss */
+/* line 1765, ../sass/style.scss */
 #prev {
   -webkit-transform: scaleX(-1);
   transform: scaleX(-1);
@@ -1870,30 +1871,30 @@ li:nth-child(5) .imgdiv,
   left: 0 !important;
 }
 
-/* line 1765, ../sass/style.scss */
+/* line 1766, ../sass/style.scss */
 #play {
   position: relative;
   display: none;
 }
 
-/* line 1766, ../sass/style.scss */
+/* line 1767, ../sass/style.scss */
 #pause-span {
   visibility: hidden;
 }
 
-/* line 1767, ../sass/style.scss */
+/* line 1768, ../sass/style.scss */
 #pause {
   position: absolute;
   right: 100%;
 }
 
-/* line 1768, ../sass/style.scss */
+/* line 1769, ../sass/style.scss */
 #next {
   position: absolute;
   right: 0;
 }
 
-/* line 1772, ../sass/style.scss */
+/* line 1773, ../sass/style.scss */
 .Preloader {
   display: none !important;
   position: absolute;
@@ -1912,15 +1913,15 @@ li:nth-child(5) .imgdiv,
   transition: transform 3s ease-in-out, opacity 3s ease-in-out;
 }
 
-/* line 1791, ../sass/style.scss */
+/* line 1792, ../sass/style.scss */
 .modified {
-  display: none;
+  display: block !important;
   opacity: 1;
   -webkit-transform: scale(0);
   transform: scale(0);
 }
 
-/* line 1797, ../sass/style.scss */
+/* line 1798, ../sass/style.scss */
 .lSSlideOuter {
   overflow: hidden;
   -webkit-touch-callout: none;
@@ -1931,31 +1932,31 @@ li:nth-child(5) .imgdiv,
   user-select: none;
 }
 
-/* line 1806, ../sass/style.scss */
+/* line 1807, ../sass/style.scss */
 .lightSlider:before, .lightSlider:after {
   content: " ";
   display: table;
 }
 
-/* line 1810, ../sass/style.scss */
+/* line 1811, ../sass/style.scss */
 .lightSlider {
   overflow: hidden;
   margin: 0;
 }
 
-/* line 1814, ../sass/style.scss */
+/* line 1815, ../sass/style.scss */
 .lSSlideWrapper {
   max-width: 100%;
   overflow: hidden;
   position: relative;
 }
 
-/* line 1819, ../sass/style.scss */
+/* line 1820, ../sass/style.scss */
 .lSSlideWrapper > .lightSlider:after {
   clear: both;
 }
 
-/* line 1822, ../sass/style.scss */
+/* line 1823, ../sass/style.scss */
 .lSSlideWrapper .lSSlide {
   -webkit-transform: translate(0px, 0px);
   -ms-transform: translate(0px, 0px);
@@ -1970,12 +1971,12 @@ li:nth-child(5) .imgdiv,
   transition-timing-function: inherit !important;
 }
 
-/* line 1835, ../sass/style.scss */
+/* line 1836, ../sass/style.scss */
 .lSSlideWrapper .lSFade {
   position: relative;
 }
 
-/* line 1838, ../sass/style.scss */
+/* line 1839, ../sass/style.scss */
 .lSSlideWrapper .lSFade > * {
   position: absolute !important;
   top: 0;
@@ -1985,7 +1986,7 @@ li:nth-child(5) .imgdiv,
   width: 100%;
 }
 
-/* line 1846, ../sass/style.scss */
+/* line 1847, ../sass/style.scss */
 .lSSlideWrapper.usingCss .lSFade > * {
   opacity: 0;
   -webkit-transition-delay: 0s;
@@ -1998,33 +1999,33 @@ li:nth-child(5) .imgdiv,
   transition-timing-function: inherit !important;
 }
 
-/* line 1857, ../sass/style.scss */
+/* line 1858, ../sass/style.scss */
 .lSSlideWrapper .lSFade > *.active {
   z-index: 10;
 }
 
-/* line 1860, ../sass/style.scss */
+/* line 1861, ../sass/style.scss */
 .lSSlideWrapper.usingCss .lSFade > *.active {
   opacity: 1;
 }
 
 /** /!!! End of core css Should not edit !!!/**/
 /* Pager */
-/* line 1866, ../sass/style.scss */
+/* line 1867, ../sass/style.scss */
 .lSSlideOuter .lSPager.lSpg {
   margin: 10px 0 0;
   padding: 0;
   text-align: center;
 }
 
-/* line 1871, ../sass/style.scss */
+/* line 1872, ../sass/style.scss */
 .lSSlideOuter .lSPager.lSpg > li {
   cursor: pointer;
   display: inline-block;
   padding: 0 5px;
 }
 
-/* line 1876, ../sass/style.scss */
+/* line 1877, ../sass/style.scss */
 .lSSlideOuter .lSPager.lSpg > li a {
   background-color: #222222;
   border-radius: 30px;
@@ -2039,24 +2040,24 @@ li:nth-child(5) .imgdiv,
   transition: all 0.5s linear 0s;
 }
 
-/* line 1889, ../sass/style.scss */
+/* line 1890, ../sass/style.scss */
 .lSSlideOuter .lSPager.lSpg > li:hover a, .lSSlideOuter .lSPager.lSpg > li.active a {
   background-color: #428bca;
 }
 
-/* line 1892, ../sass/style.scss */
+/* line 1893, ../sass/style.scss */
 .lSSlideOuter .media {
   opacity: 0.8;
 }
 
-/* line 1895, ../sass/style.scss */
+/* line 1896, ../sass/style.scss */
 .lSSlideOuter .media.active {
   opacity: 1;
 }
 
 /* End of pager */
 /** Gallery */
-/* line 1901, ../sass/style.scss */
+/* line 1902, ../sass/style.scss */
 .lSSlideOuter .lSPager.lSGallery {
   list-style: none outside none;
   padding-left: 0;
@@ -2077,39 +2078,39 @@ li:nth-child(5) .imgdiv,
   user-select: none;
 }
 
-/* line 1920, ../sass/style.scss */
+/* line 1921, ../sass/style.scss */
 .lSSlideOuter .lSPager.lSGallery li {
   overflow: hidden;
   -webkit-transition: border-radius 0.12s linear 0s 0.35s linear 0s;
   transition: border-radius 0.12s linear 0s 0.35s linear 0s;
 }
 
-/* line 1925, ../sass/style.scss */
+/* line 1926, ../sass/style.scss */
 .lSSlideOuter .lSPager.lSGallery li.active, .lSSlideOuter .lSPager.lSGallery li:hover {
   border-radius: 5px;
 }
 
-/* line 1928, ../sass/style.scss */
+/* line 1929, ../sass/style.scss */
 .lSSlideOuter .lSPager.lSGallery img {
   display: block;
   height: auto;
   max-width: 100%;
 }
 
-/* line 1933, ../sass/style.scss */
+/* line 1934, ../sass/style.scss */
 .lSSlideOuter .lSPager.lSGallery:before, .lSSlideOuter .lSPager.lSGallery:after {
   content: " ";
   display: table;
 }
 
-/* line 1937, ../sass/style.scss */
+/* line 1938, ../sass/style.scss */
 .lSSlideOuter .lSPager.lSGallery:after {
   clear: both;
 }
 
 /* End of Gallery*/
 /* slider actions */
-/* line 1943, ../sass/style.scss */
+/* line 1944, ../sass/style.scss */
 .lSAction > a {
   width: 32px;
   display: block;
@@ -2125,29 +2126,29 @@ li:nth-child(5) .imgdiv,
   transition: opacity 0.35s linear 0s;
 }
 
-/* line 1957, ../sass/style.scss */
+/* line 1958, ../sass/style.scss */
 .lSAction > a:hover {
   opacity: 1;
 }
 
-/* line 1960, ../sass/style.scss */
+/* line 1961, ../sass/style.scss */
 .lSAction > .lSPrev {
   background-position: 0 0;
   left: 10px;
 }
 
-/* line 1964, ../sass/style.scss */
+/* line 1965, ../sass/style.scss */
 .lSAction > .lSNext {
   background-position: -32px 0;
   right: 10px;
 }
 
-/* line 1968, ../sass/style.scss */
+/* line 1969, ../sass/style.scss */
 .lSAction > a.disabled {
   pointer-events: none;
 }
 
-/* line 1971, ../sass/style.scss */
+/* line 1972, ../sass/style.scss */
 .cS-hidden {
   height: 1px;
   opacity: 0;
@@ -2156,45 +2157,45 @@ li:nth-child(5) .imgdiv,
 }
 
 /* vertical */
-/* line 1980, ../sass/style.scss */
+/* line 1981, ../sass/style.scss */
 .lSSlideOuter.vertical {
   position: relative;
 }
 
-/* line 1983, ../sass/style.scss */
+/* line 1984, ../sass/style.scss */
 .lSSlideOuter.vertical.noPager {
   padding-right: 0px !important;
 }
 
-/* line 1986, ../sass/style.scss */
+/* line 1987, ../sass/style.scss */
 .lSSlideOuter.vertical .lSGallery {
   position: absolute !important;
   right: 0;
   top: 0;
 }
 
-/* line 1991, ../sass/style.scss */
+/* line 1992, ../sass/style.scss */
 .lSSlideOuter.vertical .lightSlider > * {
   width: 100% !important;
   max-width: none !important;
 }
 
 /* vertical controlls */
-/* line 1997, ../sass/style.scss */
+/* line 1998, ../sass/style.scss */
 .lSSlideOuter.vertical .lSAction > a {
   left: 50%;
   margin-left: -14px;
   margin-top: 0;
 }
 
-/* line 2002, ../sass/style.scss */
+/* line 2003, ../sass/style.scss */
 .lSSlideOuter.vertical .lSAction > .lSNext {
   background-position: 31px -31px;
   bottom: 10px;
   top: auto;
 }
 
-/* line 2007, ../sass/style.scss */
+/* line 2008, ../sass/style.scss */
 .lSSlideOuter.vertical .lSAction > .lSPrev {
   background-position: 0 -31px;
   bottom: auto;
@@ -2203,28 +2204,28 @@ li:nth-child(5) .imgdiv,
 
 /* vertical */
 /* Rtl */
-/* line 2016, ../sass/style.scss */
+/* line 2017, ../sass/style.scss */
 .lSSlideOuter.lSrtl {
   direction: rtl;
 }
 
-/* line 2019, ../sass/style.scss */
+/* line 2020, ../sass/style.scss */
 .lSSlideOuter .lightSlider, .lSSlideOuter .lSPager {
   padding-left: 0;
   list-style: none outside none;
 }
 
-/* line 2023, ../sass/style.scss */
+/* line 2024, ../sass/style.scss */
 .lSSlideOuter.lSrtl .lightSlider, .lSSlideOuter.lSrtl .lSPager {
   padding-right: 0;
 }
 
-/* line 2026, ../sass/style.scss */
+/* line 2027, ../sass/style.scss */
 .lSSlideOuter .lightSlider > *, .lSSlideOuter .lSGallery li {
   float: left;
 }
 
-/* line 2029, ../sass/style.scss */
+/* line 2030, ../sass/style.scss */
 .lSSlideOuter.lSrtl .lightSlider > *, .lSSlideOuter.lSrtl .lSGallery li {
   float: right !important;
 }
@@ -2318,42 +2319,42 @@ li:nth-child(5) .imgdiv,
     bottom: 0;
   }
 }
-/* line 2138, ../sass/style.scss */
+/* line 2139, ../sass/style.scss */
 .lSSlideOuter .rightEnd {
   -webkit-animation: rightEnd 0.3s;
   animation: rightEnd 0.3s;
   position: relative;
 }
 
-/* line 2143, ../sass/style.scss */
+/* line 2144, ../sass/style.scss */
 .lSSlideOuter .leftEnd {
   -webkit-animation: leftEnd 0.3s;
   animation: leftEnd 0.3s;
   position: relative;
 }
 
-/* line 2148, ../sass/style.scss */
+/* line 2149, ../sass/style.scss */
 .lSSlideOuter.vertical .rightEnd {
   -webkit-animation: topEnd 0.3s;
   animation: topEnd 0.3s;
   position: relative;
 }
 
-/* line 2153, ../sass/style.scss */
+/* line 2154, ../sass/style.scss */
 .lSSlideOuter.vertical .leftEnd {
   -webkit-animation: bottomEnd 0.3s;
   animation: bottomEnd 0.3s;
   position: relative;
 }
 
-/* line 2158, ../sass/style.scss */
+/* line 2159, ../sass/style.scss */
 .lSSlideOuter.lSrtl .rightEnd {
   -webkit-animation: leftEnd 0.3s;
   animation: leftEnd 0.3s;
   position: relative;
 }
 
-/* line 2163, ../sass/style.scss */
+/* line 2164, ../sass/style.scss */
 .lSSlideOuter.lSrtl .leftEnd {
   -webkit-animation: rightEnd 0.3s;
   animation: rightEnd 0.3s;
@@ -2361,7 +2362,7 @@ li:nth-child(5) .imgdiv,
 }
 
 /*/  GRab cursor */
-/* line 2169, ../sass/style.scss */
+/* line 2170, ../sass/style.scss */
 .lightSlider.lsGrab > * {
   cursor: -webkit-grab;
   cursor: -moz-grab;
@@ -2370,7 +2371,7 @@ li:nth-child(5) .imgdiv,
   cursor: grab;
 }
 
-/* line 2176, ../sass/style.scss */
+/* line 2177, ../sass/style.scss */
 .lightSlider.lsGrabbing > * {
   cursor: move;
   cursor: -webkit-grabbing;

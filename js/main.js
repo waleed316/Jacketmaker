@@ -642,8 +642,8 @@ var aW = function (a) {
             })
         });
         var T, U = "block" === H.find(".Controller").css("display"),
-            V = a('<div class=""></div>').appendTo(H),
-            W = "block" === H.find("").css("display");
+            V = a('<div class="Preloader"></div>').appendTo(H),
+            W = "block" === H.find(".Preloader").css("display");
         return this.loadController = function () {
             function b() {
                 e ? i === g ? (e = !1, f(i - 1)) : f(i + 1) : 1 === i ? (e = !0, f(i + 1)) : f(i - 1), d()
