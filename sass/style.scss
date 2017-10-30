@@ -82,6 +82,7 @@ body,html{
     .btn-cart{
         background-color: transparent!important;
         padding: 0.5rem 10px!important;
+        cursor: pointer;
         &:focus{
             box-shadow: none;
         }
@@ -92,6 +93,8 @@ body,html{
 
     }
 }
+
+
 
 
 // carousel
@@ -1051,6 +1054,74 @@ body,html{
         color: white!important;
     }
 }
+
+
+.check-out-btn{
+    background-color: $primary-color!important;
+    border-radius: 0!important;
+    cursor: pointer;
+    color: $fonts-color;
+    &:hover{
+        color: $primary-color;
+        background-color: $fonts-color!important;
+        border-color: $primary-color!important;
+    }
+}
+
+#cart_1{
+    height: 30px;
+    fill:   $primary-color;
+}
+
+.row-bg-color{
+    background-color: #f3f3f3;
+}
+
+.cart-header{
+    font-weight: bold;
+}
+
+
+.cart-list{
+    list-style: none;
+}
+
+.img-container{
+    position: relative;
+    height: 100%;
+    width: 100%;
+    img{
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+}
+
+.middle-allign{
+    top: 50%;
+    transform: translatey(-50%);
+    position: absolute;
+    width: 100%;
+}
+
+
+.btn-apply{
+    background-color: $primary-color!important;
+    color: $fonts-color;
+    border-radius: 0!important;
+    cursor: pointer;
+    &:hover{
+        background-color: $fonts-color!important;
+        border-color: $primary-color!important;
+        color: $primary-color!important;
+
+    }
+}
+
+.right-column{
+    height: 100%;
+}
+
 
 
 // Extra small devices (portrait phones, less than 576px)
