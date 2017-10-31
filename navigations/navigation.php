@@ -5,11 +5,11 @@
         </button>
         <a class="navbar-brand" href="#">
             <img src="images/logo-01.png" class="img-fluid" alt="">
-            <p>MAKE YOUR JACKET</p>
+            <img src="images/Black Myj (1).png" alt="" class="imgfluid img-brand">
         </a>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <div class="col-xl-7 zero-margin">
+            <div class="col-xl-6 zero-margin">
                 <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
                     <a class="nav-link" href="index.php">Home</a>
@@ -43,10 +43,14 @@
                     <button class="btn" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
                 </form>
             </div>
-            <div class="col-xl-1 zero-margin">
+            <div class="col-xl-2 zero-margin text-right">
+                <button class="btn btn-cart" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-user" aria-hidden="true"></i></button>     
                 <button class="btn btn-cart"><i class="fa fa-usd" aria-hidden="true"></i></button>
-                <button class="btn btn-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></button>                    
+                <button class="btn btn-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></button>     
             </div>
         </div>
     </nav>
+
+    
 </div>
+

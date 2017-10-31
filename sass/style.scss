@@ -37,7 +37,7 @@ body,html{
             left: 25px
         }
 
-        p{
+        .img-brand{
             display: none;
         }
     }
@@ -869,7 +869,6 @@ body,html{
 }
 
 .video-box{
-    position: absolute!important;
     bottom: 0;
     left: 10px;
     h3{
@@ -1084,6 +1083,12 @@ body,html{
 
 .cart-list{
     list-style: none;
+    li{
+        margin-bottom: 5px;
+        padding-bottom: 5px;
+        border-bottom: 1px solid black;
+        padding-top: 5px;
+    }
 }
 
 .img-container{
@@ -1122,10 +1127,212 @@ body,html{
     height: 100%;
 }
 
+.add-more-item{
+    color: $primary-color;
+    font-size: 18px;
+    display: inline;
+    vertical-align: top;
+    i{
+        font-size: 26px;
+        margin-right: 5px;
+    }
+    &:hover{
+        text-decoration: none;
+        color: black;
+    }
+}
+
+.btn-minus{
+    background-color: transparent!important;
+    border: 1px solid black!important;
+    padding: 0px!important;
+    border-radius: 2.25em!important;
+    width: 22px!important;
+}
+
+.btn-span,.increase{
+    height: 22px;
+    border: 0!important;
+    margin-left: 2px;
+    margin-right: 2px;
+    padding: 0;
+    width: 30px;
+    text-align: center;
+    padding: 0!important;
+    text-align: center;
+    width: 30px!important;
+}
+
+.form-width{
+    width: 20px!important;
+}
+
+.cart-desc{
+
+    a{
+        color: black;
+        &:hover{
+            color: $primary-color;
+            text-decoration: none;
+        }
+    }
+}
+
+.badge-no{
+    background-color: black!important;
+    height: 24px;
+    width: 24px;
+    padding: 6px!important;
+}
+
+.bdge-heading{
+    display: inline;
+    vertical-align: middle;
+    margin-left: 5%;
+}
+
+.badge-clr{
+    background-color: transparent!important;
+    color: $primary-color!important;
+    border: 1px solid $primary-color;
+    padding: 5px!important;
+    height: 24px;
+    width: 24px;
+}
+
+
+.next-check-btn{
+    background-color: $primary-color!important;
+    color: white;
+    border-radius: 0!important;
+    &:hover{
+        text-decoration: none;
+        color: $primary-color;
+        background-color: white!important;
+        border-color: $primary-color;
+    }
+}
+
+.back-btn{
+    color: $primary-color;
+    font-size: 18px;
+    display: inline;
+    vertical-align: top;
+    &:hover{
+        text-decoration: none;
+    }
+    i{
+        font-size: 26px;
+    }
+}
+
+.billing-add{
+    font-size: 26px;
+}
+
+.mmm{
+    margin-bottom: 10px;
+}
+
+.paypal-btn{
+    display: inline!important;
+    vertical-align: middle!important;
+    font-size: 12px!important;
+    background-color: $primary-color!important;
+    color: $fonts-color;
+    &:hover{
+        color: black;
+        text-decoration: none;
+    }
+}
+
+#paypal{
+    height: 15px;
+    vertical-align: middle;
+}
+
+
+.login-head{
+    font-size: 14px;
+}
+
+.btn-login-proceed{
+    width: 100%;
+    background-color: $primary-color!important;
+    color: white;
+    border-radius: 0!important;
+}
+
+.login-title{
+    color: $primary-color;
+}
+
+.creat-head{
+    font-size: 18px;
+}
+
+.register-form-styling{
+    padding: 15px;
+    border: 1px solid lightgray;
+}
+
+.label1{
+    font-size: 12px!important;
+    text-align: right;
+}
+
+.register-btn{
+    background-color: $primary-color!important;
+    color: white;
+    border-radius: 0!important;
+    cursor: pointer;
+    &:hover{
+        background-color: white!important;
+        color: $primary-color;
+        border-color: $primary-color!important;
+    }
+}
+
+.dash-heading{
+    font-weight: 600;
+}
+
+.rotate{
+    border: 1px solid lightgray;
+    top: 26px;
+    width: 15px;
+    height: 15px;
+    transform: rotate(135deg);
+    position: absolute;
+    left: 38px;
+    border-top-right-radius: 0;
+    border-bottom: 0;
+    border-left: 0;
+    background-color: white;
+}
+
+.dash-list{
+    list-style: none;
+    li{
+        margin-left: 5px;
+        a{
+            font-size: 14px;
+            color: black;
+            font-weight: normal;
+            &:hover{
+                text-decoration: none;
+                color: $primary-color;
+                margin-left: 2px;
+                font-weight: bold;
+            }
+        }
+    }
+}
 
 
 // Extra small devices (portrait phones, less than 576px)
 @media (max-width: 575px) { 
+ 
 
     .fourth-head{
         font-size: 26px!important;
@@ -1154,10 +1361,10 @@ body,html{
             display: none;
         }
 
-        p{
+        .img-brand{
             display: block!important;
             font-size: $header-fontsize;
-            margin-top: 5%;
+            margin-top: 2%;
             font-weight: bold;
         }
     }
@@ -1285,6 +1492,81 @@ body,html{
         }
     }
 
+    .cart-desc{
+        font-size: 11px;
+        margin-bottom: 5px!important;
+        a{
+            color: black;
+        }
+    }
+    
+    .middle-md-allign{
+        margin-top: -25px;
+    }
+
+    .cart-desc{
+        font-size: 10px;
+        margin-bottom: 2px!important;
+        a{
+            color: black;
+        }
+    }
+    
+    .middle-md-allign{
+        margin-top: -35px;
+    }
+
+    .form-width{
+        margin-bottom: 5px!important;
+    }
+
+    .shoping-cart-heading{
+        font-size: 14px!important;
+    }
+
+    .check-out-btn{
+        font-size: 14px!important;
+        padding: 8px 5px!important;
+    }
+
+    .cart-list{
+        li{
+            margin-bottom: 5px;
+            padding-bottom: 10%;
+            border-bottom: 1px solid black;
+            padding-top: 10%;
+        }
+    }
+
+    .left-heading{
+        font-size: 12px!important;
+    }
+
+    .btn-apply{
+        font-size: 10px!important;
+        padding: 8px 7px!important;
+    }
+
+    .add-more-item{
+        font-size: 10px!important;
+        vertical-align: middle!important;
+        i{
+            font-size: 14px!important;
+        }
+    }
+
+    .sub-total{
+        font-size: 10px!important;
+    }
+
+    .sub-amount{
+        font-size: 12px!important;
+    }
+
+    .promo-code{
+        height: 25px!important;
+        width: 65%!important;
+    }
 }
 
 
@@ -1343,6 +1625,17 @@ body,html{
 
     .fourth-p{
         text-align: center;
+    }
+
+    .cart-desc{
+        font-size: 12px;
+        a{
+            color: black;
+        }
+    }
+    
+    .middle-md-allign{
+        margin-top: -35px;
     }
 
 }

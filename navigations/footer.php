@@ -136,7 +136,33 @@
 
 
 
-
+<div class="modal fade" style="z-index:1111111" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+    <div class="modal-content modal-sm">
+        <div class="modal-header">
+            <h5 class="modal-title login-title" id="exampleModalLabel">Please login</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <!-- <h6 class="login-head">What is your email address?</h6> -->
+            <form action="">
+                <div class="form-group">
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Password">
+                </div>
+                <button type="submit" class="btn btn-login-proceed">Proceed</button>
+            </form>
+            <hr>
+            <a href="register.php">New Here? Sign-up now!</a>
+            
+        </div>
+    </div>
+    </div>
+</div>
 
 
 
