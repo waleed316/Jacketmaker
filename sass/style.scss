@@ -251,6 +251,7 @@ body,html{
             padding: 0!important
         }
     }
+
 }
 
 
@@ -1329,6 +1330,204 @@ body,html{
     }
 }
 
+.name-box{
+    .name-echo{
+        font-size: 13px;
+        font-weight: bold;
+    }
+    
+    p{
+        font-size: 12px;
+    }
+}
+
+.detail-box{
+    border: 1px solid lightgray;
+    padding: 10px;
+
+    .cntct-detail-head{
+        margin-bottom: 5px!important;
+    }
+    hr{
+        margin: 5px 0!important;
+        background-color: black;
+    }
+
+    .cntct-name{
+        font-size: 12px;
+        color: black;
+        a{
+            color: $primary-color;
+            font-size: 12px;
+            &:hover{
+                text-decoration: none;
+                color: black;
+            }
+        }
+    }
+
+    .pswrd-chnge{
+        color: $primary-color;
+        font-size: 14px;
+        &:hover{
+            text-decoration: none;
+            color: black;
+        }
+    }
+
+    .edit-anchor{
+        color: $primary-color;
+        &:hover{
+            color: black;
+            text-decoration: none;
+        }
+        i{
+            color: $primary-color;
+        }
+    }
+}
+
+.address-head{
+    margin-bottom: 0;
+    font-size: 20px;
+}
+
+.address-manag{
+    margin-bottom: 0!important;
+    a{
+        color: black;
+        font-size: 13px;
+        &:hover{
+            color: $primary-color;
+            text-decoration: none;
+        }
+    }
+}
+
+.two-boxes{
+    border: 1px solid lightgray;
+    padding: 10px;
+
+    .cntct-detail-head{
+        margin-bottom: 5px!important;
+    }
+    hr{
+        margin: 5px 0!important;
+        background-color: black;
+    }
+
+    .cntct-name{
+        font-size: 12px;
+        color: black;
+        a{
+            color: $primary-color;
+            font-size: 12px;
+            &:hover{
+                text-decoration: none;
+                color: black;
+            }
+        }
+    }
+
+    .pswrd-chnge{
+        color: $primary-color;
+        font-size: 14px;
+        &:hover{
+            text-decoration: none;
+            color: black;
+        }
+    }
+
+    .edit-anchor{
+        color: $primary-color;
+        font-size: 12px;
+        &:hover{
+            color: black;
+            text-decoration: none;
+        }
+        i{
+            color: $primary-color;
+        }
+    }
+
+    .add-services{
+        font-size: 14px;
+        .edit{
+            color: black;
+            &:hover{
+                text-decoration: none;
+                color: $primary-color;
+            }
+        }
+
+        .delete{
+            color: red;
+            &:hover{
+                text-decoration: none;
+                color: $primary-color;
+            }
+
+        }
+
+        .default{
+            color: black;
+            &:hover{
+                text-decoration: none;
+                color: $primary-color;
+            }
+        }
+    }
+}
+
+.min-height{
+    min-height: 165px;
+}
+
+.active-li{
+    text-decoration: none;
+    color: #D37B49!important;
+    margin-left: 2px;
+    font-weight: bold!important;
+}
+
+.panel1-box{
+    border: 1px solid lightgray;
+    form{
+        padding: 15px;
+    }
+}
+
+.dis-inline{
+    display: inline;
+}
+
+.btn-ad{
+    float: right;
+    background-color: $primary-color;
+    color: white;
+    border-radius: 0!important;
+    &:hover{
+        background-color: white!important;
+        color: $primary-color;
+        border-color: $primary-color;
+    }
+}
+
+.anchar{
+    font-size: 12px;
+    vertical-align: top;
+    color: black;
+    &:hover{
+        text-decoration: none;
+    }
+}
+
+.go-btn{
+    background-color: $primary-color!important;
+    color: white;
+    border-radius: 0!important;
+    cursor: pointer;
+}
 
 // Extra small devices (portrait phones, less than 576px)
 @media (max-width: 575px) { 
@@ -1567,6 +1766,13 @@ body,html{
         height: 25px!important;
         width: 65%!important;
     }
+
+    .min-height{
+        margin-top: 10px!important;
+    }
+    .margin{
+        margin-top: 10px!important;
+    }
 }
 
 
@@ -1636,6 +1842,14 @@ body,html{
     
     .middle-md-allign{
         margin-top: -35px;
+    }
+
+    .min-height{
+        margin-top: 10px!important;
+    }
+
+    .margin{
+        margin-top: 10px!important;
     }
 
 }
@@ -1784,6 +1998,10 @@ body,html{
             }
         }
     }
+
+    .min-height{
+        min-height: 178px!important;
+    }
     
 }
 
@@ -1906,6 +2124,10 @@ body,html{
             font-size: 12px;
             letter-spacing: 0.9px;
         }
+    }
+
+    .min-height{
+        min-height: 178px!important;
     }
 
 }
